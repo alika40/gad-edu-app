@@ -1,0 +1,14 @@
+<div class="snack-bar-container">
+    <!-- Dymnamic global styles -->
+    <div class="mat-icon-others-div">
+        <mat-icon class="{{ data?.styleIcon }} mat-icon-others-span" *ngIf="data?.actionIcon">
+            {{ data?.actionIcon }}
+        </mat-icon>
+        <span class="{{ data?.styleText }} text-span">
+            {{ data?.message }}
+        </span>
+    </div>
+    <mat-icon (click)="dismiss()" class="mat-icon-close">
+        {{ data?.icon }}
+    </mat-icon>
+</div>

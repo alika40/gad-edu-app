@@ -1,0 +1,19 @@
+<div class="overlay" *ngIf="isLoadingService.isLoading$ | async">
+    <div class="left" [ngClass]="{'active-left': sidnavToggleState}"></div>
+    <div class="right" [ngClass]="{'active-right': sidnavToggleState}"></div>
+    <div class="isLoading-container" *ngIf="!sidnavToggleState">
+        <div class="animated-spinner">
+            <mat-spinner    class="background-1"
+                            [diameter]="spinnerDiameter"
+                            [strokeWidth]="underlayStrokeWidth"
+                            mode="determinate"
+                            value="100"></mat-spinner>
+
+            <mat-spinner    class="background-2"
+                            [diameter]="spinnerDiameter"
+                            [strokeWidth]="strokeWidth"
+                            mode="indeterminate"
+                            color="primary"></mat-spinner>
+        </div>
+    </div>
+</div>

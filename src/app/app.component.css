@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+  }
+
+/* Sidenav and content container */
+mat-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+        flex: 1 0 auto;
+}
+.is-mobile mat-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+        `<body>` to be our scrolling element for mobile layouts. */
+        flex: 1 0 auto;
+    }
+.sidenav-container {
+    background: var(--background-theme);
+}
+
+.content {
+    min-height: calc(100vh - 70px);
+    position: relative;
+  }
+
+  
+header {
+    height: 70px;
+}
+
+.sidenav-appearance {
+    width: 20%; /* add padding-left: 20% to .footer class to align its content */
+    background: var(--background-sidenav);
+    border-right: var(--border);
+}
+
+/* Sidenav appearance like the width, background-color */
+.is-mobile .sidenav-appearance {
+    width: 60%;
+    background-color: var(--background-sidenav);
+}
+
+/* Mat Divider */
+.mat-divider {
+    background-color: var(--mat-divider);
+  }
+  
+/* Sidenav anchor(a) and button tags */
+.activeLink, .activeLinkClass {
+    background-color: var(--sidenav-links);
+    color: #808B96;
+    border-right: var(--sidenav-border-right);
+}
+
+.a-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 1rem;
+    color: var(--foreground-color);
+}
+
+.a-text:hover{
+    background-color: var(--sidenav-links);
+    color: #808B96;
+    transition-duration: 0.5s;
+}
+
+/* Restyles the sidenav for scroollbar to work */
+.no-v-scroll {
+    height: 100%;
+    overflow-y: hidden; 
+    display: flex; 
+    flex-direction: column;
+}
+
+  
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .footer {
+    border-top: var(--border);
+    background: var(--background-footer);
+  }

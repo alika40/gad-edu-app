@@ -1,0 +1,17 @@
+.title-div, .content-div {
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 1rem; */
+}
+.title-div { margin-bottom: 1.5rem; }
+.content-div { margin-bottom: 1rem; }
+
+h1 { color: var(--danger); }
+p, button {
+    color: var(--foreground-color);
+}
+
+button {
+    transform: scale(.90);
+    background-color: var(--button-BG);
+}

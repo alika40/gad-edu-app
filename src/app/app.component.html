@@ -1,0 +1,57 @@
+
+<app-isloading></app-isloading>
+
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+     <!-- Header -->
+    <header class="header">
+        <app-header (toggleSidenav)="sidenav.toggle()"></app-header>
+    </header>
+
+    <mat-sidenav-container class="sidenav-container" appScrolledTo #scrolledToElement="appScrolledTo">
+        <mat-sidenav  [mode]="mobileQuery.matches ? 'over' : 'side'"
+                      [fixedInViewport]="mobileQuery.matches ? true: true"
+                      [fixedTopGap]="70"
+                      [fixedBottomGap]="0"
+                      [opened]="mobileQuery.matches ? false : true" role="navigation"
+                      [disableClose]
+                      class="sidenav-appearance"
+                      #sidenav>
+        
+
+                <!-- Sidenav -->
+                <ng-container class="no-v-scroll">
+                    <mat-nav-list style="overflow-y: auto;">
+                        <a  mat-button   
+                            [routerLinkActive]="['activeLinkClass']"
+                            [routerLinkActiveOptions]="{exact: true}"
+                            (click)="mobileQuery.matches ? sidenav.toggle() : ''"
+                            [class.active]="(isHandset | async)?.matches"
+                            class="a-text">
+
+                            <span> Home </span>
+
+                        </a>
+
+                        <mat-divider></mat-divider>
+
+                    </mat-nav-list>
+                </ng-container>
+        </mat-sidenav>
+
+            <!-- Content Section -->
+            <mat-sidenav-content class="content" role="main">
+                <main [@routerAnimation]="getRouteAnimation(router)">
+
+                    <router-outlet #router="outlet"></router-outlet>
+
+                </main>
+                
+            <!-- Footer Section for mobile class="mat-elevation-z15" -->
+                <footer class="footer">
+                  <app-footer></app-footer>
+                </footer>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+</div>

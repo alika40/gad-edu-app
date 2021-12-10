@@ -1,0 +1,67 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
+/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+
+
+:root {
+    --foreground-color: #4a4a4a;
+    --foreGC-heading: #0a0a0a;
+    --icons: #8c8c8c;
+    --links: #654bda;
+    --sidenav-links: #d6eaf8;
+    --paginator-icons: #8f8e8e;
+    --paginator-text: #8c8c8c;
+    --paginator-BG: #f8f8f8;
+    --paginator-underline: 0px solid #8c8c8c;
+    --sidenav-border-right: 5px solid #92abcf;
+    --foreground-input: #808080;
+
+
+
+    /* Colors for backgrounds for light or dark background*/
+    --background-theme: #ffffff;
+    --container-theme: #f8f8f8;
+    --background-sidenav: #f8f8f8;
+    --comment-create-textarea: #f8f8f8;
+    --border: 2px solid #e1e1e1;
+    --box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+    --mat-divider: #f4f4f4;
+
+
+    /* Colors for headers for light or dark background */
+    --background-header: #191970;
+    --fa-icon-lightBulb: #FFFFFF;
+    
+
+    /* Colors for footers for light or dark background*/
+    --background-footer: #f8f8f8;
+    
+  
+    /* Generic Colors for error, success, warning, for any background */
+    --warning: #f14940;
+    --success: #1cfd41;
+    --danger: #f70901e5;
+    --spinner-mini: #3c208a;
+    --spinner: #92abcf;
+    --secondary-color: #4688F1;
+    --button-BG: rgba(0, 0, 0, 0.0025);
+    --com-color-btn: #3c208a;
+    --items-text: #FFF;
+    --snackBar-BG: #131415;
+    --mat-menu-hover: #d6eaf8;
+    --mat-menu-text: #2a2a2a;
+    /* --mat-menu-icon: #FFF; */
+
+  
+  }
+  
+  html,
+  body {
+     margin:0;
+     padding:0;
+     height:100%;
+     font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

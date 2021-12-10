@@ -1,0 +1,38 @@
+.header {
+    position: fixed;
+    height: 70px;
+    z-index: 2;
+    top: 0;
+    background: var(--background-header);
+  }
+
+  .mat-home-icon-btn{
+    margin-left: .5rem;
+  }
+  .mat-home-icon-btn:hover, .mat-menu-icon:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .mat-home-icon, .mat-menu-icon {
+    transform: scale(.95);
+    color: #FFF;
+  }
+  
+  .more-vert-btn {
+    margin-top: .25rem;
+    margin-left: .5rem;
+  }
+  .more-vert-btn:hover { background-color: rgba(0, 0, 0, 0.2); }
+  .mat-more-vert-icon {
+    transform: scale(.85);
+    color: #fff;
+    margin-top: -.15rem;
+    margin-left: -.15rem;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .mat-icons {
+    color: var(--foreground-color);
+  }

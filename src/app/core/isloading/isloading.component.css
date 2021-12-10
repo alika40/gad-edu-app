@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+  }
+
+.overlay{
+    clear: both;
+    height:100vh;
+    width:100%;
+    background-color:rgba(0, 0, 0, 0.295);
+    z-index:    10;
+    top:        0; 
+    left:       0; 
+    position:   fixed;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    background-color:rgba(0, 0, 0, 0.9);
+    height:100vh;
+    transition: 0.5s;
+}
+.right {
+    float: right;
+    width: 50%;
+    background-color:rgba(0, 0, 0, 0.9);
+    height:100vh;
+    transition: 0.5s;
+}
+
+.active-left {
+    width: 0%;
+}
+.active-right {
+    width: 0%;
+}
+
+.isLoading-container {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    top: 50%;
+    left: 50%;
+    margin: -40px 0 0 -40px; /* apply negative top and left margins to truly center the element */
+    /* z-index:    12; */
+    /* background-color: chartreuse; */
+    /* -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%); */
+
+}
+
+/* .animated-spinner {
+    background: crimson;
+    height: 80px;
+    width: 80px;
+    margin: auto;
+} */
+
+
+
+.animated-spinner .mat-progress-spinner{
+    display: inline;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+  
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    /* .isLoading-container {
+        top: 45%;
+        left: 57%;
+    } */
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    /* .isLoading-container {
+        top: 45%;
+        left: 57%;
+    }
+    .closed {
+        left: 45%;
+    } */
+}
+  
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    /* .isLoading-container {
+        top: 45%;
+        left: 57%;
+    }
+    .closed {
+        left: 45%;
+    } */
+}
+  
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    /* .isLoading-container {
+        top: 45%;
+        left: 57%;
+    }
+    .closed {
+        left: 45%;
+    } */
+}

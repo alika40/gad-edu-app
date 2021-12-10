@@ -1,0 +1,40 @@
+nav {
+    cursor: pointer;
+    margin-top: .25rem;
+    margin-left: .5rem;
+    margin-right: .25rem;
+    position: relative;
+    /* background-color: chartreuse; */
+  }
+  mat-icon {
+    margin-top: .25rem;
+    color: var(--fa-icon-lightBulb);
+    /* padding: .30rem; */
+    transition: transform 1s;
+  }
+  mat-icon:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  button {
+    transform: scale(.90);
+    /* background-color: var(--button-BG); */
+}
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+/* .visibilityHidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute;
+  width: 1px !important;
+  font-size: .80rem;
+} */
+
+  

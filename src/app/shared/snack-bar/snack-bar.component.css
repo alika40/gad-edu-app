@@ -1,0 +1,35 @@
+.mat-icon-close {
+    color: var(--danger);
+    padding: 2px;
+    align-self: center;
+    border-radius: 50%;
+    font-weight: 600;
+    /* font-size: 26px; */
+}
+
+.mat-icon-close:hover {
+    background-color: rgba(249, 182, 182, 0.095);
+    cursor: pointer;
+}
+
+.mat-icon-others-span {
+    /* font-size: 18px; */
+    margin-right: 2px;
+    align-self: center;
+}
+
+div.snack-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mat-icon-others-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.text-span {
+    align-self: center;
+}
