@@ -65,3 +65,57 @@
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color:  rgb(206, 204, 204);
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #717171;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--background-header);
+}
+
+/* Paginator */
+.mat-paginator-navigation-first,
+.mat-paginator-navigation-last,
+.mat-paginator-navigation-next,
+.mat-paginator-navigation-previous {
+  color: var(--paginator-icons);
+}
+
+.mat-paginator-page-size-label,
+.mat-paginator-range-label,
+.mat-select-arrow,
+.mat-select-value-text {
+  color: var(--paginator-text);
+}
+.mat-paginator-icon {
+  border-radius: 3px;
+  background-color: var(--paginator-BG);
+}
+.mat-form-field-underline {
+  border-bottom: var(--paginator-underline);
+}
+
+/* More style in IsLoadingComponent. */
+.background-1 circle {
+  stroke-opacity: 0.3 !important;
+}
+.background-2 circle {
+  stroke: var(--spinner) !important;
+}
+
+

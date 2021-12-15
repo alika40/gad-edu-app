@@ -38,7 +38,7 @@ mat-divider{
     background-color: var(--container-theme);
     height: 450px;
 }
-.post-image {
+.course-image {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     height: 100%;
@@ -58,7 +58,7 @@ mat-divider{
 }
 .header-text-container {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,4 +154,17 @@ mat-card-actions .mat-buttons {
 mat-card-actions .edit-btn {
     background-color: rgb(60, 32, 138);
     color: #fff;
+}
+
+mat-paginator {
+    background: var(--container-theme);
+    width: 100%;
+}
+
+.paginator-div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border-radius: 3px;
+    background-color:  var(--container-theme);
 }

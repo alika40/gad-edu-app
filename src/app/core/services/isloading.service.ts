@@ -27,9 +27,6 @@ export class IsLoadingService {
       concatMap(() => obs$),
       finalize(() => {
         this.overlayClose();
-        // setTimeout(() => {
-        //   this.isLoadingOff();
-        // }, 600);
         timer(500).subscribe( () => this.isLoadingOff() );
       })
     );

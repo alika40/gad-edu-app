@@ -1,84 +1,94 @@
 <div class="main">
 
-<div class="mat-card-div">
+    <div class="mat-card-div" *ngIf="courses">
 
-    <mat-card class="mat-card">
-        <div class="image-wrapper">
-        
-        <img class="post-image"  [src]="courses.imagePath">
+        <mat-card class="mat-card" *ngFor="let course of courses">
+            <div class="image-wrapper">
+            
+            <img class="course-image"  [src]="course.image_480x270">
 
-            <div class="header-text-container">
-            <a  [routerLink]="['/courses']">
-                <div class="header-text">
-                <h1>
-                    {{ courses.title}}
-                </h1>
-                </div>
-            </a>
-
-            <div class="broken_image" *ngIf="!courses.imagePath">
-                <span>
-                <mat-icon>broken_image</mat-icon>
-                </span>
-                <span> We're sorry, the image is broken! </span>
-                <span> {{ courses.imagePath }} </span>
-            </div>
-            </div>
-        </div>
-
-        <div class="items-container">
-                <div id="wrapper1">
-                <span>
-                    <ng-container>
-                    <small>
-                        <b class="theme">Topic:</b>
-                        <span class="isDisabled theme"> Education </span>
-                    </small>
-                    </ng-container>
-                </span>
-                <small>
-                    <mat-icon class="mat-icon-calendar theme"> calendar </mat-icon>
-                    <span class="theme">
-                        {{ courses.publishedDate  }}
-                    </span>
-                </small>
-                <span class="red-badge badge">
-                    <mat-icon  class="mat-icon-comments theme">comment</mat-icon>
-                    <span matBadgePosition="after" matBadgeSize="small" [matBadge]="1">
-                    </span>
-                </span>
-                </div>
-
-                <mat-divider></mat-divider>
-
-                <div class="mat-card-content-div">
-                    <mat-card-content>
-                        <div *ngIf="courses.description">
-                            {{ (courses.description.length >= showMoreOrLess) ? (courses.description | slice: 0:showMoreOrLess) : courses.description }}
-                            <ng-container *ngIf="courses.description.length >= showMoreOrLess">
-                                <!-- <span class="links">...</span> -->
-                                <a class="links" [routerLink]="['/post']">
-                                <span class="visibilityHidden"> ...Read Full Article: {{ courses.title }} </span>
-                                </a>
-                            </ng-container>
-                        </div>
-                    </mat-card-content>
-                </div>
-
-            <mat-card-actions>
-                <a mat-mini-fab class="mat-buttons edit-btn"
-                                aria-label="Icon button with a edit icon">
-                    <mat-icon>edit</mat-icon>
+                <div class="header-text-container">
+                <a  [routerLink]="['/courses']">
+                    <div class="header-text">
+                    <h1>
+                        {{ course.title}}
+                    </h1>
+                    </div>
                 </a>
-                <button class="mat-buttons"  mat-mini-fab color="warn" aria-label="Icon button with a delete icon" >
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </mat-card-actions>
 
+                <div class="broken_image" *ngIf="!course.image_480x270">
+                    <span>
+                    <mat-icon>broken_image</mat-icon>
+                    </span>
+                    <span> We're sorry, the image is broken! </span>
+                    <span> {{ course.image_480x270 }} </span>
+                </div>
+                </div>
+            </div>
+
+            <div class="items-container">
+                    <div id="wrapper1">
+                    <span>
+                        <ng-container>
+                        <small>
+                            <b class="theme">Topic:</b>
+                            <span class="isDisabled theme"> Education </span>
+                        </small>
+                        </ng-container>
+                    </span>
+                    <!-- <small>
+                        <mat-icon class="mat-icon-calendar theme"> calendar </mat-icon>
+                        <span class="theme">
+                            {{ courses.publishedDate  }}
+                        </span>
+                    </small> -->
+                    <span class="red-badge badge">
+                        <mat-icon  class="mat-icon-comments theme">comment</mat-icon>
+                        <span matBadgePosition="after" matBadgeSize="small" [matBadge]="1">
+                        </span>
+                    </span>
+                    </div>
+
+                    <mat-divider></mat-divider>
+
+                    <div class="mat-card-content-div">
+                        <mat-card-content>
+                            <div *ngIf="course.headline">
+                                {{ (course.headline.length >= showMoreOrLess) ? (course.headline | slice: 0:showMoreOrLess) : course.headline }}
+                                <ng-container *ngIf="course.headline.length >= showMoreOrLess">
+                                    <!-- <span class="links">...</span> -->
+                                    <a class="links" [routerLink]="['/courses']">
+                                    <span class="visibilityHidden"> ...Read Full Article: {{ course.title }} </span>
+                                    </a>
+                                </ng-container>
+                            </div>
+                        </mat-card-content>
+                    </div>
+
+                <!-- <mat-card-actions>
+                    <a mat-mini-fab class="mat-buttons edit-btn"
+                                    aria-label="edit icon button">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <button class="mat-buttons"  mat-mini-fab color="warn" aria-label="delete icon button" >
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions> -->
+
+            </div>
+        </mat-card>
+
+
+    </div>
+
+    <ng-container  *ngIf="totalCourseCount">
+        <div class="paginator-div">
+            <mat-paginator  showFirstLastButtons
+                            [length]="totalCourseCount"
+                            [pageSize]="coursesPerPage"
+                            [pageSizeOptions]="pageSize"
+                            (page)="onPageChange($event)"></mat-paginator>
         </div>
-    </mat-card>
-
-
-</div>
+    </ng-container>
 
 </div>
