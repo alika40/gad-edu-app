@@ -20,7 +20,7 @@ export function routerAnimation(): AnimationTriggerMetadata {
           transform: 'translateX(-100%)',
         }),
         animate(
-          '750ms ease',
+          '1200ms linear',
           style({
             opacity: 1,
             transform: 'translateX(0%)',
@@ -46,7 +46,7 @@ export function routerAnimation(): AnimationTriggerMetadata {
         query(
           ':leave',
           animate(
-            '750ms ease',
+            '1000ms ease-in',
             style({
               position: 'fixed',
               width: '100%',
@@ -58,7 +58,7 @@ export function routerAnimation(): AnimationTriggerMetadata {
         query(
           ':enter',
           animate(
-            '750ms ease',
+            '1000ms ease-in',
             style({
               opacity: 1,
               transform: 'translateX(0%)',
@@ -85,7 +85,7 @@ export function routerAnimation(): AnimationTriggerMetadata {
         query(
           ':leave',
           animate(
-            '750ms ease',
+            '1000ms ease-in',
             style({
               position: 'fixed',
               width: '100%',
@@ -97,7 +97,7 @@ export function routerAnimation(): AnimationTriggerMetadata {
         query(
           ':enter',
           animate(
-            '750ms ease',
+            '1000ms ease-in',
             style({
               opacity: 1,
               transform: 'translateX(0%)',

@@ -1,0 +1,17 @@
+<div class="overlay" *ngIf="isLoadingMiniService.isLoading$ | async">
+    <div class="isLoading-container">
+        <div class="animated-spinner">
+            <mat-spinner    class="background-1"
+                            [diameter]="spinnerDiameter"
+                            [strokeWidth]="underlayStrokeWidth"
+                            mode="determinate"
+                            value="100"></mat-spinner>
+
+            <mat-spinner    class="background-mini"
+                            [diameter]="spinnerDiameter"
+                            [strokeWidth]="strokeWidth"
+                            mode="indeterminate"
+                            color="primary"></mat-spinner>
+        </div>
+    </div>
+</div>

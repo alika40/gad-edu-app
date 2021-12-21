@@ -1,0 +1,40 @@
+<div class="container" [ngClass]="{'review-container-height': reviews.length}">
+
+<app-isloading-mini></app-isloading-mini>
+
+
+  <mat-card *ngFor="let review of reviews">
+
+    <div class="user-infor">
+
+        <img class="avatar" src="assets/images/default_avatar.png" alt="User Avatar">
+
+        <div class="user-names">
+            <span class="user-fname"> {{ review.user.display_name }} </span>
+            <span class="user-nickname" > {{ review.user.name }} <mat-icon>verified_user</mat-icon> </span>
+        </div>
+
+        <span class="spacer"></span>
+
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="review">
+      <div class="review-date">
+        <span> {{ review.created | date: "MMM d, yy.  |  h:mm a" | titlecase }} </span>
+
+        <span class="spacer"></span>
+
+        <span class="">
+          Rating: {{ review.rating }}
+        </span>
+      </div>
+      <div class="review-text"> {{ review.content }} </div>
+    </div>
+
+  
+  </mat-card>
+
+
+</div>

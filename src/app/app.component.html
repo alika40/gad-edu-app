@@ -24,11 +24,44 @@
                         <a  mat-button   
                             [routerLinkActive]="['activeLinkClass']"
                             [routerLinkActiveOptions]="{exact: true}"
+                            routerLink="/home"
                             (click)="mobileQuery.matches ? sidenav.toggle() : ''"
                             [class.active]="(isHandset | async)?.matches"
                             class="a-text">
 
                             <span> Home </span>
+
+                        </a>
+
+                        <mat-divider></mat-divider>
+
+                    </mat-nav-list>
+                    <mat-nav-list style="overflow-y: auto;">
+                        <a  mat-button   
+                            [routerLinkActive]="['activeLinkClass']"
+                            [routerLinkActiveOptions]="{exact: true}"
+                            routerLink="/courses"
+                            (click)="mobileQuery.matches ? sidenav.toggle() : ''"
+                            [class.active]="(isHandset | async)?.matches"
+                            class="a-text">
+
+                            <span> Courses </span>
+
+                        </a>
+
+                        <mat-divider></mat-divider>
+
+                    </mat-nav-list>
+                    <mat-nav-list style="overflow-y: auto;">
+                        <a  mat-button   
+                            [routerLinkActive]="['activeLinkClass']"
+                            [routerLinkActiveOptions]="{exact: true}"
+                            routerLink="/about"
+                            (click)="mobileQuery.matches ? sidenav.toggle() : ''"
+                            [class.active]="(isHandset | async)?.matches"
+                            class="a-text">
+
+                            <span> About </span>
 
                         </a>
 

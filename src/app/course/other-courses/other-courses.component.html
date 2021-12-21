@@ -1,0 +1,41 @@
+<div class="main-container">
+
+  
+
+<p style="color: #f14940;"><i> You might like: </i></p>
+
+<main class="carousel" *ngIf="courses.length">
+  <div class="container" tabindex="0" #carousel>
+    <!-- appCarousel -->
+      <div class="card" *ngFor="let course of courses">
+          <a  [routerLink]="['/course', course.id]">
+              <section class="image">
+                <img [src]="course.image_480x270" [alt]="course.title">
+              </section>
+              <section class="title">
+                <p>
+
+                  {{ (course.title.length >= showMoreOrLess) ? (course.title | slice: 0:showMoreOrLess) : course.title }}
+ 
+                  <ng-container *ngIf="course.title.length >= showMoreOrLess">
+                     <span> ... </span>
+                  </ng-container>
+                </p>
+              </section>
+          </a>
+        </div>
+
+    </div>
+
+
+    <button class="control prev" type="button" #navButton>
+      <span class="arrow left"></span>
+    </button>
+    <button class="control next" type="button">
+        <span class="arrow right"></span>
+    </button>
+
+  </main>
+
+
+</div>

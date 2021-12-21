@@ -1,0 +1,17 @@
+<div class="social">
+    <div class="share-buttons">
+        <share-buttons [theme]="bottomSheetData.theme"
+                        [include]="['copy', 'facebook', 'twitter', 'email', 'whatsapp', 'linkedin', 'telegram', 'pinterest', 'reddit']"
+                        [showIcon]="true"
+                        [showText]="true"
+                        [url]="bottomSheetData.url"
+                        [title]="'GAD-COM-PROJECT'"
+                        [description]="bottomSheetData.title"
+                        (click)="bottomSheetClose($event)">
+        </share-buttons>
+    </div>
+    <div class="share-btn-panel-close">
+        <button mat-button (click)="bottomSheetClose($event)"> Cancel </button>
+    </div>
+</div>
+

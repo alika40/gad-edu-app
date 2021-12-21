@@ -1,0 +1,19 @@
+.social {
+    display: flex;
+    flex-direction: column;
+    /* background-color: cyan; */
+}
+.social .share-buttons {
+    display: flex;
+    justify-content: center !important;
+    margin-top: 1rem;
+}
+.social .share-btn-panel-close {
+    display: flex;
+    justify-content: center !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--foreground-color);
+}
+
+

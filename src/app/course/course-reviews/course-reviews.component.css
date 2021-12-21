@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.container {
+    position: relative;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    min-height: 20vh;
+    /* margin-top: 5rem; */
+}
+
+.review-container-height {
+    min-height: 0vh;
+}
+
+
+.container mat-card {
+    padding: 0;
+    margin-bottom: .60rem;
+    background-color: var(--container-theme);
+    box-shadow: var(--background-tertiary-shadow);
+}
+mat-card .review {
+    padding: .5rem .75rem;
+}
+
+.user-infor{
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1rem 0 .75rem;
+}
+.avatar {
+    margin-right: .45rem;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+}
+.user-names {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.user-names .user-nickname {
+    font-size: .75rem;
+    color: rgb(140, 140, 140);
+}
+.user-names .user-fname{
+    font-size: .90rem;
+}
+.user-names span mat-icon {
+    color: var(--com-color-btn);
+    font-size: .85rem;
+}
+
+
+.spacer { flex: 1 1 auto;}
+
+
+
+.review {
+    margin-bottom: .50rem;
+}
+.review .review-date {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: -6px;
+    font-size: .75rem;
+    color: rgb(140, 140, 140);
+}
+.review .review-text {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: .70rem;
+    font-size: 1rem;
+    color: var(--foreground-color);
+}
+
+mat-divider{
+    background-color: var(--mat-divider);
+}
+

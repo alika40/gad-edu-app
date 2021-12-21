@@ -1,0 +1,86 @@
+<div class="main-wrapper">
+
+    <div class="main" *ngIf="course">
+  
+          <div class="course-title">
+            <h1>
+              {{ course.title }}
+            </h1>
+          </div>
+
+          <div *ngIf="course.image_480x270" class="course-image-div">
+            <img mat-card-image [src]="course.image_480x270" [alt]="course.title">
+          </div>
+  
+          <div class="course-subtitle-container">
+              <div class="wrapper1">
+                  <span id="spacer">
+                      <b>Category:</b> 
+                      <span  [routerLink]="['/course', course.id]">
+                        {{ course.primary_category.title }}
+                      </span>
+                  </span>
+                  <div class="created-container">
+                    <span class="mat-icon">
+                      <mat-icon>calendar_month</mat-icon>
+                    </span>
+                    <span class="created">
+                      {{ course.created | date: 'MMM d, y' }} 
+                    </span>
+                  </div>
+              </div>
+
+              <mat-divider></mat-divider>
+
+              
+          
+              <ng-container *ngIf="description">
+                <div class="description-container">
+                  <div class="description" [innerHTML]="description"></div>
+                </div>
+              </ng-container>
+
+          </div>
+
+          <div class="btns-container">
+
+              <div class="take-course">
+                <a  mat-raised-button color="primary" href="https://www.udemy.com{{course.url}}" target="_blank">Take Course</a>
+              </div>
+
+              <div>
+                <button mat-mini-fab color="warn" (click)="openBottomSheet()">
+                  <mat-icon>share</mat-icon>
+                </button>
+              </div>
+
+              <div>
+                <a  class="spacer links"
+                    aria-label="read reviews icon button"
+                    matTooltip="Read Reviews"
+                    mat-raised-button
+                    color="accent"
+                    [routerLink]="['./reviews']">
+                  <b> Read Reviews: </b> 
+                  <span> {{ course.num_reviews }} </span>
+                </a>
+              </div>
+
+          </div>
+     
+          </div>
+
+
+          <div id="course-reviews">
+            <router-outlet></router-outlet>
+          </div>
+
+  
+          <div id="other-courses">
+            <app-other-courses *ngIf="courses"
+                                [otherCourses]="courses"></app-other-courses>
+          </div>
+    
+</div>
+
+

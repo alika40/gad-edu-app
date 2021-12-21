@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IsLoadingService } from '../core/services/isloading.service';
-import { Course } from './course.model';
+import { Course } from '../courses.model';
 
 
 const BACKEND_URL_DATA = environment;
@@ -18,10 +18,8 @@ export class CoursesService {
   private courses: Course[] = [];
   private subject = new Subject<{courses: Course[], courseCount: number}>();
 
-  constructor(
-              private http: HttpClient,
-              private isLoadingService: IsLoadingService
-              ) { this.getCourses(); } // Initialize backend call
+  constructor(  private http: HttpClient,
+                private isLoadingService: IsLoadingService ) {}
 
 
 
@@ -42,9 +40,17 @@ export class CoursesService {
                 title: course.title,
                 url: course.url,
                 price: course.price,
+                discount_price: '',
                 headline: course.headline,
+                rating: 0,
+                num_reviews: 0,
+                description: '',
                 image_480x270: course.image_480x270,
-                published_title: ''
+                primary_category: { title: '', url: '' },
+                created: '',
+                objectives_summary: [],
+                requirements_data: { items: []},
+                visible_instructors: course.visible_instructors
               };
         }),
         courseCount: data.courseCount
@@ -53,7 +59,6 @@ export class CoursesService {
     this.isLoadingService.showContentUntilCompleted(data$) // Spinner Action
     .subscribe(transformedData => {
       this.courses = transformedData.courses;
-      // Data stored to be Observed using Subject and/or asObservable() from rsjx
       this.subject.next({courses: [...this.courses], courseCount: transformedData.courseCount});
     });
   }

@@ -2,6 +2,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+
 
 import { LoadedOnceGuard } from './loaded-once.guard';
 import { FooterComponent } from './footer/footer.component';
@@ -49,6 +51,7 @@ import { ScrolledToDirective } from './track-scroll-position.diretive';
     ThemeService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}}
   ],
   entryComponents: [
     // SnackBarComponent,

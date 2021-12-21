@@ -1,6 +1,6 @@
 const express = require('express');
 
-const coursesRouter = require('./routes/courses');
+const coursesRouter = require('./routes/course');
 const cors = require('./middleware/cors-config'); 
 
 

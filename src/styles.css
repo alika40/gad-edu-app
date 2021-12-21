@@ -1,7 +1,3 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
-/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
-/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
 
 
 :root {
@@ -118,4 +114,61 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   stroke: var(--spinner) !important;
 }
 
+/* BottomSheet style  */
+.bottom-sheet-class-style {
+  background-color:  var(--background-theme) !important;
+  font-weight: 450;
 
+}
+/* .mat-bottom-sheet-container {
+  background-color:  red !important;
+} */
+share-buttons > div > share-button > button.sb-copy > div.sb-content {
+    background-color: #b9cfed;
+}
+share-buttons > div > share-button > button.sb-facebook > div.sb-content {
+  background-color: #1877f2;  
+}
+share-buttons > div > share-button > button.sb-twitter > div.sb-content {
+    background-color: #1da1f2;
+}
+share-buttons > div > share-button > button.sb-whatsapp > div.sb-content {
+    background-color: #25d366;
+}
+share-buttons > div > share-button > button.sb-email > div.sb-content {
+    background-color: #788cb6;
+}
+share-buttons > div > share-button > button.sb-linkedin > div.sb-content {
+    background-color: #0077b5; 
+}
+share-buttons > div > share-button > button.sb-telegram > div.sb-content {
+    background-color: #0088cc;
+}
+share-buttons > div > share-button > button.sb-pinterest > div.sb-content{
+    background-color: #e60023;
+}
+share-buttons > div > share-button > button.sb-reddit > div.sb-content {
+    background-color: #ff4500;
+}
+share-buttons > div > share-button > button {
+  border-radius: 4px;
+}
+share-buttons > div > share-button > button > div.sb-content {
+    border-radius: 4px;
+}
+share-buttons > div > share-button > button > div.sb-content > div.sb-icon fa-icon {
+  padding: 0;
+  margin-left: -8px;
+  border-right: 1px solid #b8b8b8;
+}
+share-buttons > div > share-button > button > div.sb-content > div.sb-text {
+  padding: 0 3px 0 0; 
+  margin-left: -8px;
+}
+
+/* Dialog */
+/* Error and Action panels */
+.custom-style-error .mat-dialog-container,
+.custom-style-action .mat-dialog-container  {
+  background-color: var(--background-theme) !important;
+}
