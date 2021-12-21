@@ -27,7 +27,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "axios": "^0.24.0",
-    "config": "^3.3.6",
     "debug": "^4.3.3",
     "express": "^4.17.1",
     "ngx-sharebuttons": "^9.0.0",
@@ -41,14 +40,15 @@
     "@angular/compiler-cli": "~13.0.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "dotenv": "^10.0.0",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.4.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "typescript": "~4.4.3"
   },
   "engines": {
     "node": "12.22.5",

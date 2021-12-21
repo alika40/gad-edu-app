@@ -149,3 +149,38 @@ mat-paginator {
     border-radius: 3px;
     background-color:  var(--container-theme);
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .main {
+        margin-top: 4rem;
+        margin-bottom: 8rem;
+    }
+    
+    .mat-card-div {
+        width: 94%;
+    }
+
+    .image-wrapper{
+        height: 300px;
+    }
+
+    .header-text-container {
+        height:300px;
+    }
+
+    .theme {
+        font-size: 16px;
+    }
+    .broken_image mat-icon {
+        font-size: 50px;
+    }
+    mat-card-content {
+        font-size: 1.25rem;
+        line-height: 22px;
+    }
+    
+}
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {}

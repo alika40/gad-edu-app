@@ -135,7 +135,49 @@ mat-divider{
 
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 600px) {
+    #other-courses, #course-reviews {
+        width: 94%;
+    }
+
+    .main-wrapper {
+        padding-top: 4rem;
+        padding-bottom: 8rem;
+    }
+    
+    
+    .main-wrapper .main {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .main .course-title {
+        font-size: 1.35rem;
+    }
+    .course-subtitle-container .wrapper1 #spacer span,
+    .course-subtitle-container .wrapper1 .created-container .created {
+        font-size: 15px;
+    }
+    .course-subtitle-container .wrapper1 #spacer b {
+        font-size: 16px;
+    }
+    .course-subtitle-container .wrapper1 .created-container .mat-icon {
+        font-size: 1.35rem;
+    }
+    .main .description-container div.description {
+        font-size: 1.20rem;
+        line-height: 25px;
+    }
+    .btns-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2.5rem;
+    }
+    .btns-container > div > button,
+    .reviews {
+        margin-top: 1rem;
+    }
+}
   
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}

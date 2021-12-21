@@ -16,7 +16,7 @@
               <div class="wrapper1">
                   <span id="spacer">
                       <b>Category:</b> 
-                      <span  [routerLink]="['/course', course.id]">
+                      <span>
                         {{ course.primary_category.title }}
                       </span>
                   </span>
@@ -55,7 +55,7 @@
               </div>
 
               <div>
-                <a  class="spacer links"
+                <a  class="spacer links reviews"
                     aria-label="read reviews icon button"
                     matTooltip="Read Reviews"
                     mat-raised-button

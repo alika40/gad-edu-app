@@ -15,7 +15,6 @@
 
 section {
     margin-top: 5rem;
-    background: var(--background-theme);
     line-height: 30px;
     font-size: 18px;
     width: 75%;
@@ -23,8 +22,59 @@ section {
     margin-right: auto;
 }
 
+
 figure > figcaption {
     float: right;
     clear: both;
     margin-right: 1rem;
+}
+
+.banner {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--container-theme);
+    box-shadow: var(--background-tertiary-shadow);
+    border-radius: 10px;
+}
+
+
+
+.info-text {
+    font-family: Nosifer;/*Faster One, Fredericka the Great, Frijole, Trade Winds,Nosifer, Rye, etc.*/
+    text-shadow: 3px 3px 1px rgb(131, 130, 130);
+    word-spacing: 10px;
+    animation: text-colors 2.5s infinite;
+    font-size: 3rem;
+}
+
+.appreciation-text {
+    animation: text-colors 2.5s infinite;
+}
+/* Project Post Status Animation */
+@keyframes text-colors {
+    from {color: rgb(248, 248, 248);}
+    to {color: rgb(60, 32, 138);}
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    section {
+        padding-left: 4px;
+        padding-right: 4px;
+        width: 94%;
+    }
+
+    .info-text {
+        line-height: 3.5rem;
+    }
+    .content > h1 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+    .content > p {
+        font-size: 20px;
+        word-spacing: 3px;
+    }
+    
 }

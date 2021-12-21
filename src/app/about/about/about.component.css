@@ -28,12 +28,16 @@ color: black;
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
+    /* max-width: 300px; */
     margin: auto;
     text-align: center;
     font-family: arial;
 }
   
+img {
+    width: 100%;
+    height: 160px;
+}
 .title {
     color: grey;
     font-size: 18px;
@@ -106,4 +110,39 @@ section {
     background: var(--background-theme);
     line-height: 30px;
     font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .main {
+        margin-top: 2rem;
+        margin-bottom: 10rem;
+        width: 94%;
+    }
+    
+    
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+    }
+    .card {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    }
+    .flex-container > div {
+        margin-top: 2rem;
+    }
+    .flex-container > div, .card {
+        border-radius: 8px;
+        }
+
+    img {
+        height: 180px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    section {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    
 }
