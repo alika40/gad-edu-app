@@ -3,8 +3,8 @@ const path = require('path');
 
 // const coursesRouter = require('./routes/course');
 // const cors = require('./middleware/cors-config'); 
-const cors = require(path.join(__dirname + '/middleware/cors-config'));
-const coursesRouter = require(path.join(__dirname + '/routes/course'));
+const cors = require(path.join(__dirname + '/backend/middleware/cors-config'));
+const coursesRouter = require(path.join(__dirname + '/backend/routes/course'));
 
 
 const app = express();

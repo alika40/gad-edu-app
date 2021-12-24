@@ -1,7 +1,5 @@
 const axios = require('axios');
-// const path = require('path');
 
-// const config = require(path.join(__dirname +'/config'));
 const config = require('../../config');
 
 

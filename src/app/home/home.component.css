@@ -37,6 +37,10 @@ figure > figcaption {
     border-radius: 10px;
 }
 
+.content > p {
+    margin-top: 2rem;
+}
+
 
 
 .info-text {
@@ -75,6 +79,7 @@ figure > figcaption {
     .content > p {
         font-size: 20px;
         word-spacing: 3px;
+        margin-top: 2rem;
     }
     
 }
