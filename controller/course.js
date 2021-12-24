@@ -1,4 +1,7 @@
 const axios = require('axios');
+// const path = require('path');
+
+// const axiosInstance = require(path.join(__dirname + '/middleware/udemy-check'));
 const axiosInstance = require('../middleware/udemy-check');
 
 
