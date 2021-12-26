@@ -1,0 +1,88 @@
+<div class="main">
+
+    <div class="mat-card-div" *ngIf="courses">
+
+        <mat-card class="mat-card" *ngFor="let course of courses">
+            <div class="image-wrapper">
+            
+            <img class="course-image"  [src]="course.image_480x270">
+
+                <div class="header-text-container">
+                <a  [routerLink]="['/course', course.id]">
+                    <div class="header-text">
+                    <h1>
+                        {{ course.title}}
+                    </h1>
+                    </div>
+                </a>
+
+                <div class="broken_image" *ngIf="!course.image_480x270">
+                    <span>
+                    <mat-icon>broken_image</mat-icon>
+                    </span>
+                    <span> We're sorry, the image is broken! </span>
+                    <span> {{ course.image_480x270 }} </span>
+                </div>
+                </div>
+            </div>
+
+            <div class="items-container">
+                    <div id="wrapper1">
+                    <span>
+                        <ng-container>
+                        <small>
+                            <b class="theme">Price:</b>
+                            <span class="price theme"> {{ course.price }} </span>
+                        </small>
+                        </ng-container>
+                    </span>
+                    <span class="red-badge badge" aria-label="number of instructors">
+                        <mat-icon  class="mat-supervisor-account theme">supervisor_account</mat-icon>
+                        <span matBadgePosition="after" matBadgeSize="small" [matBadge]="course.visible_instructors.length">
+                        </span>
+                    </span>
+                    </div>
+
+                    <mat-divider></mat-divider>
+
+                    <div class="mat-card-content-div">
+                        <mat-card-content>
+                            <div *ngIf="course.headline">
+                                {{ (course.headline.length >= showMoreOrLess) ? (course.headline | slice: 0:showMoreOrLess) : course.headline }}
+                                <ng-container *ngIf="course.headline.length >= showMoreOrLess">
+                                    <!-- <span class="links">...</span> -->
+                                    <a class="links" [routerLink]="['/course', course.id]">
+                                    <span class="visibilityHidden"> ...Read Course Details: {{ course.title }} </span>
+                                    </a>
+                                </ng-container>
+                            </div>
+                        </mat-card-content>
+                    </div>
+
+                <!-- <mat-card-actions>
+                    <a mat-mini-fab class="mat-buttons edit-btn"
+                                    aria-label="edit icon button">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <button class="mat-buttons"  mat-mini-fab color="warn" aria-label="delete icon button" >
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions> -->
+
+            </div>
+        </mat-card>
+
+
+    </div>
+
+    <ng-container  *ngIf="totalCourseCount">
+        <div class="paginator-div">
+            <mat-paginator  showFirstLastButtons
+                            [length]="totalCourseCount"
+                            [pageSize]="coursesPerPage"
+                            [pageSizeOptions]="pageSize"
+                            (page)="onPageChange($event)"></mat-paginator>
+        </div>
+    </ng-container>
+
+</div>

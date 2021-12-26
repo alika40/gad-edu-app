@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {MatBottomSheet, MatBottomSheetConfig} from '@angular/material/bottom-sheet';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Course } from '../courses.model';
 import { SocialShareBottomSheetComponent } from './social-share-bottom-sheet/social-share-bottom-sheet.component';
@@ -17,15 +17,19 @@ export class CourseComponent implements OnInit, OnDestroy {
   courses: Course[] = [];
   description:SafeHtml | any;
   private subs: Subscription = new Subscription();
+  @ViewChild('smooth') private divElem: ElementRef<HTMLDivElement> | any;
+
 
 
   constructor(  readonly bottomSheet: MatBottomSheet,
                 private route: ActivatedRoute,
+                private router: Router,
                 private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
     this.getCourse();
+    this.scrollToSectionHook();
 
   }
 
@@ -48,6 +52,8 @@ export class CourseComponent implements OnInit, OnDestroy {
 
   }
 
+
+
   openBottomSheet(): void {
     const bottomShtConfig = new MatBottomSheetConfig();
     const url = window.location.href;
@@ -64,6 +70,30 @@ export class CourseComponent implements OnInit, OnDestroy {
     this.bottomSheet.open(SocialShareBottomSheetComponent, bottomShtConfig);
 
   }
+
+
+
+  private scrollToSectionHook(): void {
+    this.subs.add(
+        this.router.events.subscribe(event => {
+          if (event instanceof NavigationEnd) {
+              const tree = this.router.parseUrl(this.router.url);
+              // console.log(tree);
+              if (tree.fragment) {
+                  // const element = document.querySelector('#' + tree.fragment);
+                  const element = this.divElem.nativeElement;
+                  if (element) {
+                      setTimeout(() => {
+                          element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+                      }, 1000 );
+                  }
+              }
+          }
+        })
+    );
+
+  }
+
 
 
   ngOnDestroy(): void {

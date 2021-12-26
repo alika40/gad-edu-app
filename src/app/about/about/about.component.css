@@ -18,20 +18,31 @@
 
 .flex-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
   
-.flex-container > div {
-background-color: #f1f1f1;
-color: black;
+.flex-container > div.card-wrapper {
+    flex: 33%;
+    max-width: 31%;
+    background-color: #f1f1f1;
+    color: black;
 }
+
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    /* max-width: 300px; */
     margin: auto;
     text-align: center;
     font-family: arial;
+}
+h1 {
+    margin-top: 1rem;
+}
+
+#about-us {
+    font-family: Rye, Nosifer;
+    font-weight: bold;
 }
   
 img {
@@ -41,6 +52,7 @@ img {
 .title {
     color: grey;
     font-size: 18px;
+    padding: 0 .5rem;
 }
   
 button {
@@ -52,8 +64,7 @@ button {
     background-color: #000;
     text-align: center;
     cursor: pointer;
-    width: 100%;
-    
+    width: 100%; 
 }
 button a {
     color: white;
@@ -75,13 +86,18 @@ button:hover, a:hover {
 }
 
 .underline {
-    margin: .75rem 0;
+    margin: 1rem 0;
 }
 .underline p {
     overflow: hidden;
     text-align: center;
-    color: rgb(175, 175, 175);
-    font-size: .80rem;
+    color: rgb(134, 133, 133);
+    font-size: .85rem;
+    font-family: fantasy, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    word-spacing: 4px;
+    font-style: italic;
+    letter-spacing: 1px;
+    transition: color .5s, font-size .5s, word-spacing .5s, letter-spacing .5s;
   }
   
 .underline p:before,
@@ -89,7 +105,7 @@ button:hover, a:hover {
     background-color: rgb(175, 175, 175);
     content: "";
     display: inline-block;
-    height: 1px;
+    height: 2px;
     position: relative;
     vertical-align: middle;
     width: 50%;
@@ -103,6 +119,12 @@ button:hover, a:hover {
 .underline p:after {
     left: 0.5em;
     margin-right: -50%;
+}
+.underline p:hover {
+    color: #654bda;
+    font-size: 1rem;
+    word-spacing: 5px;
+    letter-spacing: 2px;
 }
 
 section {
@@ -123,26 +145,63 @@ section {
     .flex-container {
         display: flex;
         flex-direction: column;
-        justify-content: space-between; 
+        padding: 1rem 0;
     }
     .card {
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
     }
-    .flex-container > div {
-        margin-top: 2rem;
+    .flex-container > div.card-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        flex: 100%;
+        min-width: 90%;
     }
-    .flex-container > div, .card {
+    .card-wrapper:nth-of-type(2) {
+        margin-top: 1.5rem;
+        margin-bottom: .5rem;
+    }
+
+    .flex-container > div.card-wrapper, .card {
         border-radius: 8px;
         }
 
     img {
-        height: 180px;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
+    }
+    img:nth-child(1), img:nth-child(3) {
+        height: 220px; 
+    }
+    img:nth-child(2) {
+        height: 180px; 
+    }
+    a > fa-icon {
+        font-size: 2rem;
+    }
+    a + a {
+        margin-left: 1.25rem;
     }
     section {
         padding-left: 4px;
         padding-right: 4px;
+        line-height: 32px;
+        font-size: 20px;
+    }
+
+    button > a {
+        font-weight: 500;
+        font-size: 22px;
     }
     
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    .flex-container > div.card-wrapper {
+      flex: 50%;
+      max-width: 48%;
+    }
+    .card-wrapper:nth-of-type(3) {
+    margin: 1rem 0 0 0;
+    }
 }

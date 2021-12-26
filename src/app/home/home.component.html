@@ -7,7 +7,7 @@
 
 
     <section class="banner">
-        <h1 class="info-text">WELCOME TO GAD PROJECT</h1>
+        <h1 class="info-text">WELCOME TO <span>e</span>SCHOOL</h1>
         <p class="appreciation-text"><small><b>Delivering Learning To Your Doorstep!</b></small></p>
     </section>
 
@@ -20,14 +20,26 @@
         </p>
         <p>
           We believe education is not a prerogative hence, we, a group of techpreneur, have come together to develop this application 
-          to deliver learning to you at little or no cost. Gad-edu-app, learning is at your finger tip. We have plethoral of 
+          to deliver learning to you at little or no cost. With <b style="color: #3c208a;">eSCHOOL</b>, learning is at your finger tip. We have plethoral of 
           <b><a routerLink="/courses">Coures</a></b> ranging from courses on Information Technology to Education. There is something for everyone.
 
         </p>
         <p>
-            Gad-edu-app doesn't only equip you with skills for your professional development.
+            <b style="color: #3c208a;">eSCHOOL</b> doesn't only equip you with skills for your professional development.
             The AI networking feature connects you  to tutors, students and professionals in your area of interest.
         </p>
     </section>
     
+    <section class="course-categories">
+        <h2> List of Possible Course Categories</h2>
+        <div>
+            <mat-chip-list aria-label="Courses categories selection">
+                <mat-chip   *ngFor="let cc of courses_categories; even as isEven; odd as isOdd; first as isFirst; last as isLast;"
+                            [ngClass]="{'isEvenStyle': isEven, 'isOddStyle': isOdd, 'isFirstStyle': isFirst, 'isLastStyle': isLast}"
+                            [routerLink]="['/courses/category', cc]">
+                            {{ cc }}
+                </mat-chip>
+              </mat-chip-list>
+        </div>
+    </section>
 </div>

@@ -57,9 +57,9 @@ export class CourseService {
 
 
 
-  getCourseReviews(courseID: string): Observable<CourseReview | any> {
-    const queryParam = `/course/${courseID}/reviews`;
-    const data$ = this.http.get<{reviews: CourseReview[]}>(BACKEND_URL_DATA.api_URL + queryParam);
+  getCourseReviews(courseID: number, pageNo: number, pageSize: number): Observable<{reviews: CourseReview[], count: number}> {
+    const queryParam = `/course/${courseID}/reviews/?page=${pageNo}&page_size=${pageSize}`;
+    const data$ = this.http.get<{reviews: CourseReview[], count: number}>(BACKEND_URL_DATA.api_URL + queryParam);
     return this.isLoadingMiniService.showContentUntilCompleted(data$);
 
   }

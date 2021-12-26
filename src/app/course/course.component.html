@@ -15,10 +15,11 @@
           <div class="course-subtitle-container">
               <div class="wrapper1">
                   <span id="spacer">
-                      <b>Category:</b> 
+                    <a [routerLink]="['/courses/category', course.primary_category.title]">
                       <span>
                         {{ course.primary_category.title }}
                       </span>
+                    </a>
                   </span>
                   <div class="created-container">
                     <span class="mat-icon">
@@ -60,7 +61,8 @@
                     matTooltip="Read Reviews"
                     mat-raised-button
                     color="accent"
-                    [routerLink]="['./reviews']">
+                    [routerLink]="['./reviews']"
+                    [fragment]="'course-reviews'">
                   <b> Read Reviews: </b> 
                   <span> {{ course.num_reviews }} </span>
                 </a>
@@ -71,7 +73,7 @@
           </div>
 
 
-          <div id="course-reviews">
+          <div id="course-reviews" #smooth>
             <router-outlet></router-outlet>
           </div>
 

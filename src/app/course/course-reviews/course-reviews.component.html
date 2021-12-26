@@ -36,5 +36,20 @@
   
   </mat-card>
 
+  <div class="flex-container">
+
+    <div id="prev">
+      <button class="control prev" [disabled]="pageNo < 2" (click)="previousBtn()">
+        <span class="arrow left"></span>
+      </button>
+    </div>
+    <div class="review-count"> <span> {{ pageNo }} - {{ pageSize }} of {{ reviewCount }} </span></div>
+    <div id="next">
+      <button  class="control next" [disabled]="pageSize >= reviewCount" (click)="nextBtn()">
+        <span class="arrow right"></span>
+    </button> 
+    </div>
+
+  </div>
 
 </div>

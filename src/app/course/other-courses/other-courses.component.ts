@@ -60,7 +60,6 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (this.courses.length) {
       
-      console.log(this.courses.length);
       const cardContainer = this.carouselContainer.nativeElement;
       const currentElem = this.navButton.nativeElement;
 

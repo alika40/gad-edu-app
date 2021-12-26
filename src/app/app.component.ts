@@ -65,7 +65,7 @@ export class AppComponent implements OnInit, OnDestroy {
                       .observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait]);
 
 
-    this.title.setTitle('Community Project | Production');
+    this.title.setTitle('eSchool');
 
   }
 

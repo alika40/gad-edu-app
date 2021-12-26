@@ -13,6 +13,10 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 const matModules = [
@@ -26,6 +30,10 @@ const matModules = [
   MatDialogModule,
   MatSnackBarModule,
   MatTooltipModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatAutocompleteModule,
 ];
 
 @NgModule({

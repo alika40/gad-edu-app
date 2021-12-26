@@ -13,8 +13,12 @@
     background-color: rgba(0, 0, 0, 0.2);
   }
   
-  .mat-home-icon, .mat-menu-icon {
+  .mat-home-icon  {
     transform: scale(.95);
+    color: #FFF;
+  }
+  .mat-menu-icon {
+    transform: scale(1.25);
     color: #FFF;
   }
   
@@ -33,6 +37,59 @@
   .spacer {
     flex: 1 1 auto;
   }
-  .mat-icons {
-    color: var(--foreground-color);
+ 
+  
+.theme-menu {
+  margin-right: -10px;
+}
+
+.mat-icons {
+  color: var(--foreground-color);
+}
+
+.mat-action-btns {
+  width: 100%;
+  color: var(--foreground-color);
+}
+a.mat-action-btns:hover .mat-icons {
+    color: var(--mat-menu-text);
+}
+a.mat-action-btns:hover {
+    background-color: var(--mat-menu-hover);
+    color: var(--mat-menu-text);
+}
+
+.mat-divider {
+  background-color: var(--mat-divider);
+}
+
+@media only screen and (max-width: 600px) {
+  
+  .mat-home-icon-btn{
+    margin-left: .35rem;
   }
+  
+  .mat-menu-icon {
+    margin-left: -10px;
+  }
+
+  .more-vert-btn {
+    margin-right: -10px;
+  }
+  .mat-more-vert-icon {
+    transform: scale(.95);
+    /* margin-top: -.15rem;
+    margin-left: -.15rem; */
+  }
+
+}
+
+@media only screen and (min-width: 992px)  {
+
+  /* .search-route {
+    margin-right: -3px;
+  } */
+  .theme-menu {
+    margin-right: -10px;
+  }
+}

@@ -4,12 +4,10 @@ nav {
     margin-left: .5rem;
     margin-right: .25rem;
     position: relative;
-    /* background-color: chartreuse; */
   }
   mat-icon {
     margin-top: .25rem;
     color: var(--fa-icon-lightBulb);
-    /* padding: .30rem; */
     transition: transform 1s;
   }
   mat-icon:hover {
@@ -18,23 +16,17 @@ nav {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
   }
-  button {
+  /* button {
+    margin-top: -2px;
+  } */
+  button.mat-icon-button {
     transform: scale(.90);
-    /* background-color: var(--button-BG); */
+    margin-top: -9px;
+    background-color: var(--background-header);
 }
-  button:hover {
+  button.mat-icon-button:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
 
-/* .visibilityHidden {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  padding: 0 !important;
-  position: absolute;
-  width: 1px !important;
-  font-size: .80rem;
-} */
 
   

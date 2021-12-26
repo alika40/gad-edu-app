@@ -29,10 +29,13 @@ export class CoursesService {
   }
 
 
-  getCourses(currentPage = 1, coursesPerPage = 10): void {
+  getCourses(groupCourse = '', currentPage = 1, coursesPerPage = 10): void {
     // Backend Params for pagination
-    const queryParam = `/courses/?page=${currentPage}&page_size=${coursesPerPage}`;
-    const data$ = this.http.get<{courses: Course[], courseCount: number}>(BACKEND_URL_DATA.api_URL + queryParam)
+    // const queryParamA = `/courses/?page=${currentPage}&page_size=${coursesPerPage}`;
+    // const queryParamB = `/courses/?page=${currentPage}&page_size=${coursesPerPage}&category=${groupCourse}`;
+    // const queryParam = groupCourse ? queryParamB : queryParamA;
+    const reqData = {groupCourse, currentPage, coursesPerPage};
+    const data$ = this.http.post<{courses: Course[], courseCount: number}>(BACKEND_URL_DATA.api_URL + '/courses', reqData)
     .pipe(map((data) => {
       return { courses: data.courses.map((course: Course) => {
         return {

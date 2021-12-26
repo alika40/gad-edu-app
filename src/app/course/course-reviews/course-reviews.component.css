@@ -82,3 +82,91 @@ mat-divider{
     background-color: var(--mat-divider);
 }
 
+
+.flex-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+  
+.flex-container > div {
+    background-color: var(--container-theme);
+    font-size: 12px;
+    color: var(--foreground-color);
+    border-radius: 3px;
+    margin-right: 1rem;
+}
+.flex-container > div:nth-child(2) {
+    padding: 5px;
+}
+
+
+/* =========================
+     Next and Prev buttons
+ ========================= */
+ .control {
+    border: none;
+    background-color: var(--container-theme);
+    outline: 0;  /*remove blue outline border, but make sure they are still focussable for accessibility */
+    cursor: pointer;
+    padding: 0.35em;
+    font-weight: 850;
+    font-size: 2em;
+    color: var(--foreground-color);
+    border-radius: 2px;
+}
+
+/* style the arrows */
+.arrow {
+    display: block;
+    border-left: 0.1em solid var(--foreground-color);
+    border-bottom: 0.1em solid var(--foreground-color);
+    width: 0.5em;
+    height: 0.5em;
+}
+.arrow.left {
+    transform: rotate(45deg);
+}
+.arrow.right {
+    transform: rotate(225deg);
+}
+
+button:disabled,
+button[disabled] {
+  background-color: #ffffff;
+  cursor: not-allowed;
+  border-radius: 0;
+}
+button:disabled .arrow,
+button[disabled] .arrow{
+  border-left: 0.1em solid #e2e2e2;
+  border-bottom: 0.1em solid #e2e2e2;
+}
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+
+    .flex-container {
+        justify-content: center;
+    }
+
+    .control {
+        padding: 0.5em;
+        font-weight: 850;
+        
+    }
+
+        
+    .flex-container > div {
+        font-size: 13px;
+    }
+    .flex-container > div:nth-child(2) {
+        margin-top: auto;
+        margin-bottom: auto;
+        padding: 4px;
+        font-size: 1em;
+    }
+
+}

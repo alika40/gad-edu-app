@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  courses_categories = ['Business', 'Design', 'Development', 'Finance & Accounting',
+                        'Health & Fitness', 'IT & Software', 'Lifestyle', 'Marketing',
+                        'Music', 'Office', 'Productivity', 'Personal', 'Development',
+                        'Photography & Video', 'Teaching & Academics'];
   constructor() { }
 
   ngOnInit(): void {

@@ -172,3 +172,25 @@ share-buttons > div > share-button > button > div.sb-content > div.sb-text {
 .custom-style-action .mat-dialog-container  {
   background-color: var(--background-theme) !important;
 }
+
+/* Mat-menu */
+.mat-menu-panel {
+  background: var(--container-theme);
+}
+
+.mat-menu-panel {
+    background-color: var(--container-theme);
+}
+.mat-menu {
+  background-color: var(--container-theme);
+}
+
+a.mat-menu-item:hover, button.mat-menu-item:hover {
+    background-color: var(--mat-menu-hover) !important;
+    color: var(--mat-menu-text);
+}
+a.mat-menu-item:hover, button.mat-menu-item:hover mat-icon,
+a.mat-menu-item:hover, a.mat-menu-item:hover mat-icon {
+  color: var(--mat-menu-text);
+}
+

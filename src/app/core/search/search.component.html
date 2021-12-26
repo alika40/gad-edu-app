@@ -1,0 +1,16 @@
+<label for="search" class="visibilityHidden"> Search query </label>
+<input type="text" #inputBox
+                    (keyup.enter)="onEnterKeypessTrigger($event, inputBox.value)"
+                    [formControl]="search"
+                    placeholder="search for courses"
+                    [matAutocomplete] = "auto">
+<!-- <mat-icon class="create-icon">search</mat-icon> -->
+<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+<mat-option *ngIf="isLoading"><mat-spinner diameter="25"></mat-spinner></mat-option>
+<ng-container class="wrapper" *ngIf="!isLoading">
+    <mat-option class="option" *ngFor="let result of results | slice:0:5" [value]="result.title">
+        <button mat-button id="search-keyword" (click)="onClickSearch(result)"> 
+            {{result.title}} 
+        </button>
+    </mat-option>
+</ng-container>

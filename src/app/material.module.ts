@@ -21,17 +21,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 // Material Layout
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatGridListModule } from '@angular/material/grid-list';
+// import { MatExpansionModule } from '@angular/material/expansion';
+// import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
-import { MatStepperModule } from '@angular/material/stepper';
+// import { MatStepperModule } from '@angular/material/stepper';
 // import { MatTreeModule } from '@angular/material/tree';*
-import { MatTabsModule } from '@angular/material/tabs';
+// import { MatTabsModule } from '@angular/material/tabs';
 // Material Buttons & Indicators
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
-/*import { MatChipsModule } from '@angular/material/chips';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatChipsModule } from '@angular/material/chips';
+/*import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';*/
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -43,8 +43,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 // Material Data tables
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
+// import { MatSortModule } from '@angular/material/sort';
+// import { MatTableModule } from '@angular/material/table';
 
 
 const matModules = [
@@ -71,7 +71,7 @@ const matModules = [
   MatButtonModule,
   // MatButtonToggleModule, **
   MatBadgeModule,
-  // MatChipsModule, **
+  MatChipsModule,
   MatIconModule,
   MatProgressSpinnerModule,
   // MatProgressBarModule, **

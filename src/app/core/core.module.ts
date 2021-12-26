@@ -1,22 +1,29 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
+import { CoreMaterialModule } from './material/material.module';
 
 import { LoadedOnceGuard } from './loaded-once.guard';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+
 import { IsLoadingService } from './services/isloading.service';
 import { ThemeService } from './services/theme-manager.service';
+import { SearchService } from './services/search.service';
+
 import { AuthInterceptor } from './auth.interceptor';
-import { CoreMaterialModule } from './material/material.module';
+import { ErrorInterceptor } from './error-interceptor/error-interceptor';
+
+import { ScrolledToDirective } from './track-scroll-position.diretive';
+
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 import { ErrorComponent } from './error-interceptor/error/error.component';
 import { ThemesMenuComponent } from './themes/themes-menu.component';
-import { ErrorInterceptor } from './error-interceptor/error-interceptor';
 import { IsloadingComponent } from './isloading/isloading.component';
-import { ScrolledToDirective } from './track-scroll-position.diretive';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -28,6 +35,7 @@ import { ScrolledToDirective } from './track-scroll-position.diretive';
     ErrorComponent,
     ThemesMenuComponent,
     IsloadingComponent,
+    SearchComponent,
     ScrolledToDirective,
   ],
   imports: [
@@ -35,6 +43,7 @@ import { ScrolledToDirective } from './track-scroll-position.diretive';
     HttpClientModule,
     BrowserAnimationsModule,
     CoreMaterialModule,
+    ReactiveFormsModule
   ],
   exports: [
     RouterModule,
@@ -44,11 +53,13 @@ import { ScrolledToDirective } from './track-scroll-position.diretive';
     // SnackBarComponent,
     ThemesMenuComponent,
     IsloadingComponent,
+    SearchComponent,
     ScrolledToDirective,
   ],
   providers: [
     IsLoadingService,
     ThemeService,
+    SearchService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}}

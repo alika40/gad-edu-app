@@ -4,7 +4,7 @@
             <button class="mat-menu-icon" mat-button aria-label="Toggle side nav icon button" mat-icon-button>
                 <mat-icon   (click)="proxyToggleMenu()"> menu </mat-icon>
             </button>
-            <a  class="mat-home-icon-btn" aria-label="A link with a home icon button" mat-icon-button routerLink="">
+            <a  class="mat-home-icon-btn" aria-label="A link with a home icon button" mat-icon-button routerLink="/home">
                 <mat-icon class="mat-home-icon">home</mat-icon>
             </a>
 
@@ -12,6 +12,11 @@
             </span>
     
             <span class="spacer"></span>
+
+            <!-- App search -->
+            <div class='search-route'>
+                <app-search ></app-search>
+            </div>
 
             <!-- App Themes Menu -->
             <div class="theme-menu">
@@ -23,19 +28,25 @@
                     <mat-icon class="mat-more-vert-icon" >more_vert</mat-icon> 
                 </button>
                 <mat-menu #accessMenu="matMenu" xPosition="before">
-                    <mat-divider></mat-divider>
+                    
+                    <mat-divider class="mat-divider"></mat-divider>
+
                     <ng-template matMenuContent >
                         <a mat-button class="mat-action-btns"  routerLink="" routerLinkActive="mat-accent">
                             <mat-icon class="mat-icons">login</mat-icon>
-                            Login
+                            Sign In
                         </a>
-                        <mat-divider></mat-divider>
+
+                        <mat-divider class="mat-divider"></mat-divider>
+
                         <a mat-button class="mat-action-btns"  routerLink=""  routerLinkActive="mat-accent">
                             <mat-icon class="mat-icons">person_add</mat-icon>
-                            Register
+                            Sign Up
                         </a>
                     </ng-template>
-                    <mat-divider></mat-divider>
+                    
+                    <mat-divider class="mat-divider"></mat-divider>
+
                 </mat-menu>
             </ng-container>
         </mat-toolbar-row>

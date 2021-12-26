@@ -42,7 +42,7 @@ header {
 /* Mat Divider */
 .mat-divider {
     background-color: var(--mat-divider);
-  }
+}
   
 /* Sidenav anchor(a) and button tags */
 .activeLink, .activeLinkClass {

@@ -43,7 +43,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
   onPageChange(pageData: PageEvent): any {
     this.currentPage = pageData.pageIndex + 1;
     this.coursesPerPage = pageData.pageSize;
-    this.coursesService.getCourses(this.currentPage, this.coursesPerPage);
+    this.coursesService.getCourses('', this.currentPage, this.coursesPerPage);
   }
 
 
