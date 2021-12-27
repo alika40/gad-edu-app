@@ -8,7 +8,7 @@ const axiosInstance = require('../middleware/udemy-check');
 //  Handler: Get all courses
 exports.getCourses = (req, res, next) => {
 
-        const  groupCourse = +req.body.groupCourse;
+        const  groupCourse = req.body.groupCourse;
         const  currentPage = +req.body.currentPage;
         const  coursesPerPage = +req.body.coursesPerPage;
         const apiURL_1 = `courses/?page=${currentPage}&page_size=${coursesPerPage}&search=${groupCourse}`;

@@ -39,13 +39,13 @@
   <div class="flex-container">
 
     <div id="prev">
-      <button class="control prev" [disabled]="pageNo < 2" (click)="previousBtn()">
+      <button class="control prev" [disabled]="pageNo < 2" (click)="previousBtn()" matTooltip="Previous">
         <span class="arrow left"></span>
       </button>
     </div>
     <div class="review-count"> <span> {{ pageNo }} - {{ pageSize }} of {{ reviewCount }} </span></div>
     <div id="next">
-      <button  class="control next" [disabled]="pageSize >= reviewCount" (click)="nextBtn()">
+      <button  class="control next" [disabled]="pageSize >= reviewCount" (click)="nextBtn()" matTooltip="Next">
         <span class="arrow right"></span>
     </button> 
     </div>
