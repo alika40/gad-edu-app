@@ -4,10 +4,10 @@ eSHOOL is a utility application built with Node.js, Express.js, the latest versi
 The application is a community project built by:
 1. Anthony Fredrick Alika,
 2. David Aladesaye, and
-3. Angela Teyvi,
+3. Angela Teyvi, 
 who are participants in Google Africa Developer Scholarship (GADS) 2021 - Andela.
 
-You can take tour on the demo/live application on https://gad-edu-app.herokuapp.com/
+You can take a tour on the demo/live application on https://gad-edu-app.herokuapp.com/
 
 
 ## ComProject
