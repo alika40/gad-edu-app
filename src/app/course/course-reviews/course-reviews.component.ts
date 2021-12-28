@@ -11,15 +11,16 @@ import { CourseService } from '../course.service';
 })
 export class CourseReviewsComponent implements OnInit, OnDestroy {
 
-  private subs: Subscription = new Subscription();
   reviews: CourseReview[] = [];
   pageNo = 1;
   pageSize = 10;
   reviewCount = 0;
   private pageIndex = this.pageSize;
   private pageNoTracker = this.pageNo;
-  private pageSizeTracker = this.pageSize;
+  public pageSizeTracker = this.pageSize;
+  private pageSizeReset = this.pageSize;
   private courseID = 0;
+  private subs: Subscription = new Subscription();
 
 
   constructor(
@@ -54,6 +55,8 @@ export class CourseReviewsComponent implements OnInit, OnDestroy {
   previousBtn(): void {
 
     this.pageNo -= this.pageIndex;
+    this.pageSizeTracker = this.pageSize === this.reviewCount ?
+                            this.pageSizeTracker : this.pageSizeReset; 
     this.pageSize -= this.pageSizeTracker;
     this.pageNoTracker--;
     this.getCourseReviews(this.courseID, this.pageNoTracker, this.pageSizeTracker);
@@ -65,6 +68,8 @@ export class CourseReviewsComponent implements OnInit, OnDestroy {
   nextBtn(): void {
 
     this.pageNo += this.pageIndex;
+    this.pageSizeTracker = (this.pageSize + this.pageSizeTracker) > this.reviewCount ?
+                            (this.reviewCount - this.pageSize) : this.pageSizeTracker; 
     this.pageSize += this.pageSizeTracker;
     this.pageNoTracker++;
     this.getCourseReviews(this.courseID, this.pageNoTracker, this.pageSizeTracker);

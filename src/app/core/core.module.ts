@@ -24,6 +24,9 @@ import { ErrorComponent } from './error-interceptor/error/error.component';
 import { ThemesMenuComponent } from './themes/themes-menu.component';
 import { IsloadingComponent } from './isloading/isloading.component';
 import { SearchComponent } from './search/search.component';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
+import { SnackBarService } from './services/snack-bar.service';
+import { Error404Component } from './error404/error404.component';
 
 
 
@@ -31,12 +34,13 @@ import { SearchComponent } from './search/search.component';
   declarations: [
     FooterComponent,
     HeaderComponent,
-    // SnackBarComponent,
+    SnackBarComponent,
     ErrorComponent,
     ThemesMenuComponent,
     IsloadingComponent,
     SearchComponent,
     ScrolledToDirective,
+    Error404Component,
   ],
   imports: [
     RouterModule,
@@ -50,7 +54,7 @@ import { SearchComponent } from './search/search.component';
     HttpClientModule,
     FooterComponent,
     HeaderComponent,
-    // SnackBarComponent,
+    SnackBarComponent,
     ThemesMenuComponent,
     IsloadingComponent,
     SearchComponent,
@@ -60,12 +64,13 @@ import { SearchComponent } from './search/search.component';
     IsLoadingService,
     ThemeService,
     SearchService,
+    SnackBarService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}}
   ],
   entryComponents: [
-    // SnackBarComponent,
+    SnackBarComponent,
     ErrorComponent,
   ] // Notifies angular that these components need to be used during bootstraping
 })

@@ -43,7 +43,7 @@ html, body {
 .card > a {
     text-decoration: none;
     /* user-select: none; */
-    /* pointer-events: none */
+    pointer-events: none;
     user-select: none;
     cursor: pointer;
 }

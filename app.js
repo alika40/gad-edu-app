@@ -15,6 +15,7 @@ app.use(express.urlencoded({extended: true})); // Parse URL-encoded bodies
 app.use(express.json());
 app.use(cors.permission)
 app.use(coursesRouter);
+// Comment this code section off during development
 app.use(express.static(__dirname + '/dist/com-project'));
 app.get('/*', (req, res, next) => {
     res.sendFile(path.join(__dirname + '/dist/com-project/index.html'));

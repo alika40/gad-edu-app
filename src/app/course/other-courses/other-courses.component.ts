@@ -32,8 +32,9 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
   private touchStart = 0;
   private triggerMousedown = true;
 
-  @Input()
-  get otherCourses(): Course[] {
+  @Input() courseCategory = '';
+
+  @Input() get otherCourses(): Course[] {
     return this._otherCourses;
   }
   set otherCourses(courses: Course[]) {
@@ -128,7 +129,7 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   lockNav(cardContainer: HTMLElement | any ): boolean { // Disable btns/action when parent...
     const cards = cardContainer.childNodes; // ...container is smaller than items left
-    const cardsReminder = (cards.length - this.currentCardIndex) * this.cardWidth;
+    const cardsReminder = (cards.length - (this.currentCardIndex + 1)) * this.cardWidth;
     const containerParent = cardContainer.parentElement.clientWidth;
     return (containerParent >= cardsReminder);
   }
@@ -273,7 +274,7 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
 // For Touchsreen Mobile Phones Section: Screen size below 768px
   onTouchStart(cardContainer: HTMLElement): void {
       this.renderer2.listen(cardContainer, 'touchstart', (e) => {
-          e.preventDefault();
+          // e.preventDefault();
           this.toggleLockFlag = true;
           this.touchStart = e.touches[0].clientX;
       });
@@ -284,7 +285,7 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
   onTouchMove(currentElem: HTMLElement, cardContainer: HTMLElement): void {  // Touchscreen
     this.renderer2.listen(cardContainer, 'touchmove', (e) => {
 
-      e.preventDefault();
+      // e.preventDefault();
       const moveDirection = Math.round(e.touches[0].clientX - this.touchStart);
 
       if (e.touches && this.toggleLockFlag ) {

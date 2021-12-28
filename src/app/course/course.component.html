@@ -49,7 +49,7 @@
           <div class="btns-container">
 
               <div class="take-course">
-                <a  mat-raised-button color="primary" href="https://www.udemy.com{{course.url}}" target="_blank">Take Course</a>
+                <a  mat-raised-button color="primary" href="https://www.udemy.com{{course.url}}" target="_blank">Take This Course</a>
               </div>
 
               <div>
@@ -83,7 +83,8 @@
   
           <div id="other-courses">
             <app-other-courses *ngIf="courses"
-                                [otherCourses]="courses"></app-other-courses>
+                                [otherCourses]="courses"
+                                [courseCategory]="course.primary_category.title"></app-other-courses>
           </div>
     
 </div>

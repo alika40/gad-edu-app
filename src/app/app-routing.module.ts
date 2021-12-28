@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Error404Component } from './core/error404/error404.component';
 import { CoursesComponent } from './courses/courses.component';
 import { HomeComponent } from './home/home.component';
 
@@ -17,8 +18,7 @@ const routes: Routes = [
         },
         { path: 'home', component: HomeComponent, data: { num: 3 } },
         { path: '', redirectTo: '/home', pathMatch: 'full' },
-        {path: '**', component: CoursesComponent },
-      // { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
+        {path: '**', component: Error404Component }, // Wildcard route for a 404 page
     ];
 
 

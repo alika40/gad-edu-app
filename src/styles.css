@@ -194,3 +194,31 @@ a.mat-menu-item:hover, a.mat-menu-item:hover mat-icon {
   color: var(--mat-menu-text);
 }
 
+
+
+/* Theme for buttons/icons and its text and items */
+.secondary-color {
+  background-color: var(--secondary-color);
+  color: var(--items-text);
+}
+.warn {
+  color: var(--warning);
+}
+.danger {
+  color: var(--danger);
+}
+.snack-bar-successText {
+  color: var(--success);
+}
+.snack-bar-defaultText {
+  color: var(--items-text);
+}
+.snack-bar-icon-warn {
+  color: var(--warning);
+}
+.snack-bar-icon-default {
+  color: var(--icons);
+}
+.snack-bar-icon-error {
+  color: var(--danger);
+}

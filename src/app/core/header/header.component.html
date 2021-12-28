@@ -32,14 +32,14 @@
                     <mat-divider class="mat-divider"></mat-divider>
 
                     <ng-template matMenuContent >
-                        <a mat-button class="mat-action-btns"  routerLink="" routerLinkActive="mat-accent">
+                        <a mat-button class="mat-action-btns"  (click)="notice()" routerLinkActive="mat-accent">
                             <mat-icon class="mat-icons">login</mat-icon>
                             Sign In
                         </a>
 
                         <mat-divider class="mat-divider"></mat-divider>
 
-                        <a mat-button class="mat-action-btns"  routerLink=""  routerLinkActive="mat-accent">
+                        <a mat-button class="mat-action-btns"  (click)="notice()"  routerLinkActive="mat-accent">
                             <mat-icon class="mat-icons">person_add</mat-icon>
                             Sign Up
                         </a>

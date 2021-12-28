@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SnackBarService } from '../services/snack-bar.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggleSidenav = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private snackBar: SnackBarService,) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,10 @@ export class HeaderComponent implements OnInit {
   proxyToggleMenu(): void {
     this.stateFlag = !this.stateFlag
     this.toggleSidenav.emit(this.stateFlag);
+  }
+
+  notice(): void {
+    this.snackBar.dismissableSnackBarDelay('Feature Unavailable', 'close', 'snack-bar-defaultText', 'info', 'snack-bar-icon-warn');
   }
 
 }

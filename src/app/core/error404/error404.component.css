@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+
+.main {
+    margin-bottom: 12rem;
+    background: var(--background-theme);
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--foreground-color);
+}
+
+.main > a.blue {
+    color: var(--com-color-btn);
+    margin: 1rem;
+}
+
+.main > a.blue > mat-icon {
+    color: var(--foreground-color) !important;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--container-theme);
+    box-shadow: var(--background-tertiary-shadow);
+    border-radius: 10px;
+    margin-top: 5rem;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
+.error-404-text {
+    font-family: Nosifer; /*Fredericka the Great, Frijole, Trade Winds,Nosifer, Rye, etc.*/
+    text-shadow: 3px 3px 1px rgb(131, 130, 130);
+    word-spacing: 10px;
+    line-height: 3.5rem;
+    font-size: 2.5rem;
+}
+
+.page-not-found-text {
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .main > a.blue {
+        font-size: 18px;
+    }
+
+}
+
