@@ -1,10 +1,23 @@
-# ComProject
+# eSCHOOL 
+eSHOOL is a utility application built with Node.js, Express.js, the latest version of Angular, and other npm packages.The application provides educational resources pulled from third-party infrastructure using its api. The application has contents for every user.
+
+The application is a community project built by:
+1. Anthony Fredrick Alika,
+2. David Aladesaye, and
+3. Angela Teyvi,
+who are participants in Google Africa Developer Scholarship (GADS) 2021 - Andela.
+
+You can take tour on the demo/live application on https://gad-edu-app.herokuapp.com/
+
+
+## ComProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` and `npm run server' to start up dev servers. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 
 ## Code scaffolding
 
