@@ -1,13 +1,20 @@
 # eSCHOOL 
-eSHOOL is a utility application built with Node.js, Express.js, the latest version of Angular, and other npm packages.The application provides educational resources pulled from third-party infrastructure using its api. The application has contents for every user.
+[eSHOOL](https://gad-edu-app.herokuapp.com) is a utility application built with Node.js, Express.js, the latest version of Angular, and other npm packages.The application provides educational resources pulled from third-party infrastructure using its api. The application has contents for every user.
+
+## Features
+1. Social share. Users can share their favorite courses on Facebook, Twitter, Reddit, LinkedIn, et., 
+2. Course search with auto-suggestions,
+3. Course details page which displays course details like its pricing, reviews, ratings, and other related courses. Users can also register for the course they are interested in,
+4. Home page with chips of different courses' categories, 
+5. About page which has the team members - [MG10](community.andela.com/c/mg-10-team/) - mentioned below on it. On the team member's profile card, there's 'Contact' button that links a team member to their Andela community page. It also a team member's GitHub and WhatsApp links.
 
 The application is a community project built by:
-1. Anthony Fredrick Alika,
-2. David Aladesaye, and
-3. Angela Teyvi, 
+1. [Anthony Fredrick Alika,](https://community.andela.com/u/758a2969?) 
+2. [David Aladesaye,](https://community.andela.com/u/842f9822?) and
+3. [Angela Teyvi,](https://community.andela.com/u/d6a8c909?) 
 who are participants in Google Africa Developer Scholarship (GADS) 2021 - Andela.
 
-You can take a tour on the demo/live application on https://gad-edu-app.herokuapp.com/
+You can take a tour on the [demo/live](https://gad-edu-app.herokuapp.com) application.
 
 
 ## ComProject
