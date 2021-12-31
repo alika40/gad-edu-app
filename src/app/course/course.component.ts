@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {MatBottomSheet, MatBottomSheetConfig} from '@angular/material/bottom-sheet';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -16,6 +17,9 @@ export class CourseComponent implements OnInit, OnDestroy {
   course: Course | any;
   courses: Course[] = [];
   description:SafeHtml | any;
+  cols = 2;
+  rowHeight = '60px';
+  gutterSize = '.5rem';
   private subs: Subscription = new Subscription();
   @ViewChild('smooth') private divElem: ElementRef<HTMLDivElement> | any;
 
@@ -24,7 +28,8 @@ export class CourseComponent implements OnInit, OnDestroy {
   constructor(  readonly bottomSheet: MatBottomSheet,
                 private route: ActivatedRoute,
                 private router: Router,
-                private sanitizer: DomSanitizer) { }
+                private breakpointObserver: BreakpointObserver,
+                private sanitizer: DomSanitizer ) { }
 
   ngOnInit(): void {
 
@@ -42,13 +47,46 @@ export class CourseComponent implements OnInit, OnDestroy {
                   this.courses = data['courseData'].courses;
                   this.description = this.sanitizer.bypassSecurityTrustHtml(this.course.description);
     })
-      this.subs.add(
-                  this.route.data.subscribe((data) => {
-                        this.course = data['courseData'].course;
-                        this.courses = data['courseData'].courses;
-                        this.description = this.sanitizer.bypassSecurityTrustHtml(this.course.description);
-                  })
-      );
+
+
+    this.subs.add(
+                this.route.data.subscribe((data) => {
+                      this.course = data['courseData'].course;
+                      this.courses = data['courseData'].courses;
+                      console.log(this.course.visible_instructors);
+                      this.description = this.sanitizer.bypassSecurityTrustHtml(this.course.description);
+                })
+    );
+
+
+    this.subs.add(
+      this.breakpointObserver
+      .observe([
+        Breakpoints.HandsetPortrait,
+        Breakpoints.HandsetLandscape,
+        Breakpoints.TabletLandscape,
+        Breakpoints.TabletPortrait
+      ])
+      .subscribe((state: BreakpointState) => {
+          const breakPoints = state.breakpoints;
+          if (breakPoints[Breakpoints.HandsetPortrait] ||
+              breakPoints[Breakpoints.TabletPortrait]) {
+
+                this.cols = 1;
+
+          }
+          else if (breakPoints[Breakpoints.HandsetLandscape]) {
+            
+                this.cols = 1;
+
+        }
+        else if (breakPoints[Breakpoints.TabletLandscape]) {
+            
+                this.cols = 2;
+
+        }
+      })
+    );
 
   }
 

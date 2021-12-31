@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy,
         Renderer2, AfterViewInit,
         ChangeDetectionStrategy, 
         Input} from '@angular/core';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
 import { Course } from 'src/app/courses.model';
 
@@ -66,9 +66,11 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
 
       this.subs.add(
                     this.breakpointObserver
-                    .observe(['(max-width: 768px)'])
+                    // .observe(['(max-width: 768px)'])
+                    .observe([Breakpoints.HandsetPortrait])
                     .subscribe((state: BreakpointState) => {
-                        if (state.matches) {
+                        const breakPoints = state.breakpoints;
+                        if (breakPoints[Breakpoints.HandsetPortrait]) {
                           this.breakPointState = state.matches;
                           this.initializeNav(currentElem, cardContainer, this.breakPointState);
                           this.onTouchStart(cardContainer);

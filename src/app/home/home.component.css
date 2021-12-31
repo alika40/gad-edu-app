@@ -60,6 +60,19 @@ section.banner h1.info-text span {
     font-family: Faster One, Georgia, Times, Arial, Helvetica, sans-serif, 'Times New Roman', serif;
 }
 
+.content > p > a.courses-link {
+    text-decoration: none;
+    color: var(--links);
+    font-weight: bold;
+}
+ 
+.content > p > a.courses-link:hover {
+    color: #0cacb8;
+}
+  
+.content > p > a.courses-link:active {
+    color: var(--sidenav-links);
+}
 
 
 .info-text {

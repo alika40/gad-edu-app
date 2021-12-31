@@ -37,13 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
               private breakpointObserver: BreakpointObserver,
               private themeService: ThemeService,
               ) {}
-              // https://github.com/jeffhx/basic_course_analyzer/blob/master/gather_course_info_api.py
-              // https://stackoverflow.com/questions/65550067/how-to-use-udemy-api-using-requests-module-in-python
-              // https://www.udemy.com/developers/affiliate/methods/get-courses-list/
-              // https://stackoverflow.com/questions/54619742/udemy-api-http-authorization
-              // https://www.google.com/search?q=curl+--user+%7BYOUR_CLIENT_ID%7D%3A%7BYOUR_CLIENT_SECRET%7D&oq=curl+--user+%7BYOUR_CLIENT_ID%7D%3A%7BYOUR_CLIENT_SECRET%7D&aqs=chrome..69i57.1927j0j4&sourceid=chrome&ie=UTF-8
-
-
+             
   ngOnInit(): void {
 
     this.mobileQuery = this.media.matchMedia('(max-width: 768px)');
@@ -71,7 +65,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
 
-  // For Router Animation of Sign in and Sign up pages
+  // For Router Animation
   public getRouteAnimation(outlet: RouterOutlet): AnimationTriggerMetadata {
     const res =
       outlet.activatedRouteData['num'] === undefined

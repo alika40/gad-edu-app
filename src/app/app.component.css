@@ -74,7 +74,11 @@ header {
     flex-direction: column;
 }
 
-  
+.logo > img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
 
 footer {
     width: 100%;

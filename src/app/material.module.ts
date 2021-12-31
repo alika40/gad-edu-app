@@ -22,7 +22,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 // import { MatExpansionModule } from '@angular/material/expansion';
-// import { MatGridListModule } from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 // import { MatStepperModule } from '@angular/material/stepper';
 // import { MatTreeModule } from '@angular/material/tree';*
@@ -81,6 +81,7 @@ const matModules = [
   MatSnackBarModule,
   MatTooltipModule,
   MatPaginatorModule,
+  MatGridListModule,
   // MatSortModule,
   // MatTableModule,
 ];
