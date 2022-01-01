@@ -4,14 +4,11 @@ import {MatBottomSheet, MatBottomSheetConfig} from '@angular/material/bottom-she
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import { Subscription } from 'rxjs';
 import { Course } from '../courses.model';
 import { SocialShareBottomSheetComponent } from './social-share-bottom-sheet/social-share-bottom-sheet.component';
 
 
-
-const BACKEND_URL_DATA = environment;
 
 
 
@@ -27,6 +24,7 @@ export class CourseComponent implements OnInit, OnDestroy {
   description:SafeHtml | any;
   cols = 2;
   rowHeight = '60px';
+  url = '';
   gutterSize = '.5rem';
   private subs: Subscription = new Subscription();
   @ViewChild('smooth') private divElem: ElementRef<HTMLDivElement> | any;
@@ -46,6 +44,8 @@ export class CourseComponent implements OnInit, OnDestroy {
         this.getCourse();
         this.customBreakPIonts();
         this.scrollToSectionHook();
+
+        this.url  = window.location.href;
 
       }
 
@@ -104,12 +104,11 @@ export class CourseComponent implements OnInit, OnDestroy {
     openBottomSheet(course: Course): void {
 
         const bottomShtConfig = new MatBottomSheetConfig();
-        const url = `${BACKEND_URL_DATA.api_URL}/${course.id}`;
 
         bottomShtConfig.disableClose = false;
         bottomShtConfig.autoFocus = true;
         bottomShtConfig.restoreFocus = true;
-        bottomShtConfig.data = { theme: 'circles-dark', url,  courseTitle: course.title };
+        bottomShtConfig.data = { theme: 'circles-dark', url: this.url,  courseTitle: course.title };
         bottomShtConfig.ariaLabel = 'Share on social media';
         bottomShtConfig.closeOnNavigation = true,
         bottomShtConfig.panelClass = 'bottom-sheet-class-style';
@@ -149,7 +148,6 @@ export class CourseComponent implements OnInit, OnDestroy {
   // Search Engine Optimization
   private SEOmetadata(course: Course): void {
 
-      const url = `${BACKEND_URL_DATA.api_URL}/${course.id}`;
       const intro = course.visible_instructors[0];
 
       // SEO metadat
@@ -166,7 +164,7 @@ export class CourseComponent implements OnInit, OnDestroy {
 
 
       // Facebook metadata
-      this.meta.addTag({name: 'og:url', content: url});
+      this.meta.addTag({name: 'og:url', content: this.url});
       this.meta.addTag({name: 'og:type', content: course.primary_category.title});
       this.meta.addTag({name: 'og:site_name', content: 'eSCHOOL'});
       this.meta.addTag({name: 'og:title', content: course.title});
