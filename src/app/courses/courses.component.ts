@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { CoursesService } from './courses.service';
 import { Course } from '../courses.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -30,6 +30,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
 
   constructor(  private coursesService: CoursesService,
                 private breakpointObserver: BreakpointObserver,
+                private router: Router,
                 private route: ActivatedRoute   ) { }
 
   ngOnInit(): void {
@@ -92,6 +93,19 @@ export class CoursesComponent implements OnInit, OnDestroy {
     );
 
   }
+
+
+
+  takeCourse(courseURL: string): void {
+        window.location.href = `https://www.udemy.com${courseURL}`;
+  }
+
+
+
+  courseDetails(courseID: number): void {
+      this.router.navigate(['/course', courseID]);
+  }
+
 
 
   onPageChange(pageData: PageEvent): any {

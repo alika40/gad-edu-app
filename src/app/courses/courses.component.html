@@ -62,11 +62,14 @@
                             </div>
         
                         <mat-card-actions>
-                            <a mat-raised-button class="mat-buttons take-course-btn"
-                                            aria-label="take course button">
+                            <a mat-raised-button    class="mat-buttons take-course-btn"
+                                                    aria-label="take course button"
+                                                    (click)="takeCourse(course.url)">
                                 Take This Course
                             </a>
-                            <a mat-raised-button class="mat-buttons course-details-btn"  aria-label="course details button" >
+                            <a mat-raised-button    class="mat-buttons course-details-btn" 
+                                                    aria-label="course details button" 
+                                                    (click)="courseDetails(course.id)">
                                 Course Details
                             </a>
                         </mat-card-actions>

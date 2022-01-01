@@ -241,9 +241,17 @@ mat-divider{
         /* width: 300px; */
         font-size: 16px;
     }
+
     .btns-container > div > button,
     .reviews {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .btns-container > div > button {
+        transform: scale(1.15);  
+    }
+    .btns-container > div > a {
+        font-size: 1.15rem; 
     }
 
     .price {

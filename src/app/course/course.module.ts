@@ -11,6 +11,7 @@ import { OtherCoursesComponent } from './other-courses/other-courses.component';
 import { CourseComponent } from './course.component';
 import { SocialShareBottomSheetComponent } from './social-share-bottom-sheet/social-share-bottom-sheet.component';
 import { CourseReviewsComponent } from './course-reviews/course-reviews.component';
+import { CourseResolver } from './course.resolver';
 
 
 
@@ -30,6 +31,9 @@ import { CourseReviewsComponent } from './course-reviews/course-reviews.componen
     ShareIconsModule,
     MaterialModule,
     SharedModule,
+  ],
+  providers: [
+    CourseResolver
   ]
 })
 export class CourseModule { }
