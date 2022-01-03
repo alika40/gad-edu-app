@@ -52,6 +52,7 @@ import { Error404Component } from './error404/error404.component';
   exports: [
     RouterModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FooterComponent,
     HeaderComponent,
     SnackBarComponent,

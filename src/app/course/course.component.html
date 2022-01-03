@@ -40,7 +40,7 @@
               <div class="mat-grid">
                 <p *ngIf="course.visible_instructors.length > 1" class="red"> Course Instructors:</p>
                 <p *ngIf="course.visible_instructors.length < 2" class="red"> Course Instructor:</p>
-                <mat-grid-list role="list" [cols]="cols" [rowHeight]="rowHeight" [gutterSize]="gutterSize">
+                <mat-grid-list class="inst-info" role="list" [cols]="cols" [rowHeight]="rowHeight" [gutterSize]="gutterSize">
                   <mat-grid-tile class="inst" role="listitem" *ngFor="let instructor of course.visible_instructors">
                     <span class="avatar-container">
                       <img class="avatar" [src]="instructor.image_50x50" alt="User Avatar">

@@ -1,5 +1,8 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { TransferHttpCacheModule } from '@nguniversal/common';
+import { BrowserStateInterceptor } from 'src/browser-transfer-state.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,12 +18,21 @@ import { MaterialModule } from './material.module';
     HomeComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     MaterialModule,
-    CoreModule,           // Singleton objects (services, components that are loaded only once, etc.)
+    CoreModule,
+    BrowserTransferStateModule,
+    TransferHttpCacheModule,
     
   ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BrowserStateInterceptor,
+      multi: true
+    }
+],
   bootstrap: [AppComponent],
 
 })

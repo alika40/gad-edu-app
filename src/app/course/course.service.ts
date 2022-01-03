@@ -11,9 +11,9 @@ const BACKEND_URL_DATA = environment;
 
 
 
-@Injectable({
+@Injectable(/*{
   providedIn: 'root'
-})
+}*/)
 export class CourseService {
 
 

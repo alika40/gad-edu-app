@@ -27,13 +27,15 @@ export class AppComponent implements OnInit, OnDestroy {
   isHandset!: Observable<BreakpointState>;
   private mobileQueryListener!: () => void;
 
+  
   constructor(private changeDetectorRef: ChangeDetectorRef,
               private media: MediaMatcher,
               private title: Title,
               private breakpointObserver: BreakpointObserver,
               private themeService: ThemeService,
               ) {}
-             
+  
+
   ngOnInit(): void {
 
     this.mobileQuery = this.media.matchMedia('(max-width: 768px)');
@@ -47,8 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.changeDetectorRef.detectChanges();
     };
 
-    // this.mobileQuery.addListener(this.mobileQueryListener); // Deprecated but compactible with older browsers
-    this.mobileQuery.addEventListener('onChange', this.mobileQueryListener);
+    this.mobileQuery.addListener(this.mobileQueryListener);
 
 
     this.isHandset = this.breakpointObserver
@@ -61,10 +62,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
 
-
   ngOnDestroy(): void {
-    // this.mobileQuery.removeListener(this.mobileQueryListener); // Deprecated but compactible with older browsers
-    this.mobileQuery.removeEventListener('onChange', this.mobileQueryListener);
+    this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
 }

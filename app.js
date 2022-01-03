@@ -1,25 +1,18 @@
 const express = require('express');
-const path = require('path');
 
-
-const cors = require(path.join(__dirname + '/backend/middleware/cors-config'));
-const coursesRouter = require(path.join(__dirname + '/backend/routes/course'));
-
-
-const app = express();
+const coursesRouter = require('/backend/routes/course');
+const cors = require('/backend/middleware/cors-config');
 
 
 
-app.use(express.urlencoded({extended: true})); // Parse URL-encoded bodies
-app.use(express.json());
-app.use(cors.permission)
-app.use(coursesRouter);
-// Comment this code section off during development
-app.use(express.static(__dirname + '/dist/com-project'));
-app.get('/*', (req, res, next) => {
-    res.sendFile(path.join(__dirname + '/dist/com-project/index.html'));
-});
+const app = (app) => {
 
+    app.use(express.urlencoded({extended: true})); // Parse URL-encoded bodies
+    app.use(express.json());
+    app.use(cors.permission)
+    app.use(coursesRouter);
+
+}
 
 
 

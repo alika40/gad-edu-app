@@ -134,6 +134,20 @@ section {
     font-size: 18px;
 }
 
+#more {
+    text-decoration: underline;
+    color: var(--links);
+    font-weight: 450;
+    font-style: italic;
+    transition: color 0.4s;
+}
+#more:hover {
+    text-decoration: none;
+    font-style: normal;
+    color: #0cacb8;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 600px) {
     .main {
         margin-top: 2rem;

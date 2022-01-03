@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy,
         ViewChild, ElementRef,
         Renderer2, AfterViewInit,
         ChangeDetectionStrategy, 
-        Input} from '@angular/core';
+        Input, Inject, PLATFORM_ID} from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Course } from 'src/app/courses.model';
 
@@ -31,6 +32,7 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
   private breakPointState: boolean | undefined;
   private touchStart = 0;
   private triggerMousedown = true;
+  private isBrowser = isPlatformBrowser(this.platformId);
 
   @Input() courseCategory = '';
 
@@ -45,7 +47,8 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   constructor(  private renderer2: Renderer2,
-                private breakpointObserver: BreakpointObserver ) {}
+                private breakpointObserver: BreakpointObserver,
+                @Inject(PLATFORM_ID) private readonly platformId: object ) {}
 
   ngOnInit(): void { }
 
@@ -103,9 +106,11 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
     this.cardWidth = cardContainer.firstElementChild.clientWidth;
     const lastCard = cardContainer.lastElementChild;
 
-    cardStyle = getComputedStyle(lastCard); // .card {margin-left: 5px }
-    const num: any = cardStyle ? cardStyle.marginLeft.match(/([0-9]+)/) : 5 + 'px';
-    this.cardMarginLeft = +num[0];
+    if (this.isBrowser) {
+        cardStyle = getComputedStyle(lastCard); // .card {margin-left: 5px }
+        const num: any = cardStyle.marginLeft.match(/([0-9]+)/);
+        this.cardMarginLeft = +num[0];
+    }
 
     if (breakPointtate) { // Moble: Always hide onNext button
         this.renderer2.setAttribute(nextElem, 'hidden', 'true');

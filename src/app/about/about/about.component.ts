@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { faGithubAlt, faGithub, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 
@@ -14,9 +15,11 @@ export class AboutComponent implements OnInit {
   faWhatsapp = faWhatsapp;
 
 
-  constructor() { }
+  constructor( private title: Title ) { }
 
   ngOnInit(): void {
+
+    this.title.setTitle('About | eSCHOOL');
   }
 
 }

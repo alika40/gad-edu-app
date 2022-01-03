@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, Subject } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IsLoadingService } from '../core/services/isloading.service';
 import { Course } from '../courses.model';
@@ -15,8 +15,6 @@ const BACKEND_URL_DATA = environment;
 })
 export class CoursesService {
 
-  private courses: Course[] = [];
-  private subject = new Subject<{courses: Course[], courseCount: number}>();
 
   constructor(  private http: HttpClient,
                 private isLoadingService: IsLoadingService ) {}
@@ -24,18 +22,15 @@ export class CoursesService {
 
 
 
-  getCoursesListener(): Observable<{courses: Course[], courseCount: number}> {
-    return this.subject.asObservable();
-  }
-
-
-  getCourses(groupCourse = '', currentPage = 1, coursesPerPage = 10): void {
+  getCourses(groupCourse = '', currentPage = 1, coursesPerPage = 10): Observable<{courses: Course[], courseCount: number}> {
     // Backend Params for pagination
-    // const queryParamA = `/courses/?page=${currentPage}&page_size=${coursesPerPage}`;
-    // const queryParamB = `/courses/?page=${currentPage}&page_size=${coursesPerPage}&category=${groupCourse}`;
-    // const queryParam = groupCourse ? queryParamB : queryParamA;
-    const reqData = {groupCourse, currentPage, coursesPerPage};
-    const data$ = this.http.post<{courses: Course[], courseCount: number}>(BACKEND_URL_DATA.api_URL + '/courses', reqData)
+    const queryParamA = `/courses/?page=${currentPage}&page_size=${coursesPerPage}`;
+    const queryParamB = `/courses/?page=${currentPage}&page_size=${coursesPerPage}&search=${groupCourse}`;
+    const uriA = BACKEND_URL_DATA.api_URL + queryParamA;
+    const uriB = BACKEND_URL_DATA.api_URL + queryParamB;
+    const encodedURI = groupCourse ? encodeURI(uriB) : uriA;
+
+    const data$ = this.http.get<{courses: Course[], courseCount: number}>(encodedURI)
     .pipe(map((data) => {
       return { courses: data.courses.map((course: Course) => {
         return {
@@ -59,11 +54,7 @@ export class CoursesService {
         courseCount: data.courseCount
       };
     }));
-    this.isLoadingService.showContentUntilCompleted(data$) // Spinner Action
-    .subscribe(transformedData => {
-      this.courses = transformedData.courses;
-      this.subject.next({courses: [...this.courses], courseCount: transformedData.courseCount});
-    });
+    return this.isLoadingService.showContentUntilCompleted(data$); // Spinner Action
   }
 
 

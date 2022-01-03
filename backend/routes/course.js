@@ -6,7 +6,7 @@ const courseController = require('../controller/course');
 
 
 
-router.post('/api/courses', courseController.getCourses);
+router.get('/api/courses', courseController.getCourses);
 router.post('/api/courses/search', courseController.getSearchCourses);
 router.get('/api/course/:courseID', courseController.getCourse);
 router.get('/api/course/:courseID/reviews', courseController.getCourseReviews);

@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 const axiosInstance = require('../middleware/udemy-check');
 
 
@@ -8,15 +6,15 @@ const axiosInstance = require('../middleware/udemy-check');
 //  Handler: Get all courses
 exports.getCourses = (req, res, next) => {
 
-        const  groupCourse = req.body.groupCourse;
-        const  currentPage = +req.body.currentPage;
-        const  coursesPerPage = +req.body.coursesPerPage;
-        const apiURL_1 = `courses/?page=${currentPage}&page_size=${coursesPerPage}&search=${groupCourse}`;
-        const apiURL_2 = `courses/?page=${currentPage}&page_size=${coursesPerPage}`;
-        const apiURL = groupCourse ? apiURL_1 : apiURL_2;
+        const encodedURI = req.headers.host + req.originalUrl;
+        const  groupCourse = req.query.groupCourse;
+        const URI = groupCourse ? decodeURI(encodedURI) : encodedURI;
+        const apiURL = URI.split('/api/');
 
-        axiosInstance.get(apiURL)
-        .then(response => res.status(200).json({ courses: response.data.results, courseCount: response.data.count }) )
+        axiosInstance.get(apiURL[1])
+        .then(response => {
+            res.status(200).json({ courses: response.data.results, courseCount: response.data.count });
+        })
         .catch(error => res.status(500).json({message: 'ERROR: Error Occured!'}) );
 
 }
@@ -43,17 +41,6 @@ exports.getCourse = async(req, res, next) => { // ?fields[course]=@all,owner,-im
     catch(error) {
         res.status(500).json({message: 'ERROR: Error Occured!'})
     }
-    /*const courseID = +req.params.courseID;
-    const apiURL_1 = `courses/${courseID}/?fields[course]=title,url,price,visible_instructors,image_480x270,description,
-                    headline,discount_price,rating,num_reviews,primary_category,created,requirements_data,
-                    objectives,objectives_summary`;
-    const apiURL_2 = `courses/?page=${1}&page_size=${8}`;
-    const course =  axiosInstance.get(apiURL_1);
-    const otherCourses = axiosInstance.get(apiURL_2);
-
-    axios.all([course, otherCourses])
-    .then( response => res.status(200).json({ course: response[0].data, otherCourses: response[1].data.results }) )
-    .catch((error) => res.status(500).json({message: 'ERROR: Error Occured!'}) );*/
     
 }
 
@@ -80,6 +67,7 @@ exports.getCourseReviews = async(req, res, next) => {
     }
 
 }
+
 
 
 
