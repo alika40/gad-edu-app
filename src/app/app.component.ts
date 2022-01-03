@@ -3,9 +3,6 @@ import { Component, ChangeDetectorRef, OnInit, OnDestroy} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { BreakpointObserver, BreakpointState, MediaMatcher, Breakpoints} from '@angular/cdk/layout';
 
-import { RouterOutlet } from '@angular/router';
-import { AnimationTriggerMetadata } from '@angular/animations';
-import { routerAnimation } from './core/animations';
 import { Observable } from 'rxjs';
 import { ThemeService } from './core/services/theme-manager.service';
 
@@ -23,7 +20,6 @@ export interface Topic {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [ routerAnimation()],
 })
 export class AppComponent implements OnInit, OnDestroy {
 
@@ -64,16 +60,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
 
-
-  // For Router Animation
-  public getRouteAnimation(outlet: RouterOutlet): AnimationTriggerMetadata {
-    const res =
-      outlet.activatedRouteData['num'] === undefined
-        ? -1
-        : outlet.activatedRouteData['num'] ;
-
-    return res;
-  }
 
 
   ngOnDestroy(): void {
