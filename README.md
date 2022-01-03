@@ -7,7 +7,8 @@
 3. **Course page** which displays course details like its pricing, reviews, ratings, and ***other related courses***. Users can also register for the course they are interested in,
 4. **Courses page** which displays lists of available courses. The page has a pagination,
 5. **Home page** which has chips of different courses' categories, 
-6. **About page** which has the team members - [MG10](community.andela.com/c/mg-10-team/) - mentioned below on it. On the team member's profile card, there's ***Contact*** button that links a team member to their ***Andela community page.*** It also has a team member's GitHub and WhatsApp links.
+6. **About page** which has the team members - [MG10](community.andela.com/c/mg-10-team/) - mentioned below on it. On the team member's profile card, there's ***Contact*** button that links a team member to their ***Andela community page.*** It also has a team member's GitHub and WhatsApp links,
+7. **Angular Universal** added to improve user experience through ***Search Engine Optimization*** and ***Social Media Share***.
 
 The application is a community project built by:
 1. [Anthony Fredrick Alika,](https://community.andela.com/u/758a2969?)
