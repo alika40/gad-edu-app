@@ -33,7 +33,7 @@ import { CourseService } from './course.service';
     SharedModule,
   ],
   providers: [
-    CourseService,
+    CourseService
   ]
 })
 export class CourseModule { }
