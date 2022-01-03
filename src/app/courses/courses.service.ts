@@ -10,9 +10,9 @@ const BACKEND_URL_DATA = environment;
 
 
 
-@Injectable({
+@Injectable(/*{
   providedIn: 'root'
-})
+}*/)
 export class CoursesService {
 
 
@@ -30,7 +30,7 @@ export class CoursesService {
     const uriB = BACKEND_URL_DATA.api_URL + queryParamB;
     const encodedURI = groupCourse ? encodeURI(uriB) : uriA;
 
-    const data$ = this.http.get<{courses: Course[], courseCount: number}>(encodedURI)
+    const data$ = this.http.get<{courses: Course[], courseCount: number}>(encodedURI, {responseType: 'json'})
     .pipe(map((data) => {
       return { courses: data.courses.map((course: Course) => {
         return {
