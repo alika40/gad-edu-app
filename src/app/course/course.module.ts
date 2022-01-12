@@ -12,6 +12,7 @@ import { CourseComponent } from './course.component';
 import { SocialShareBottomSheetComponent } from './social-share-bottom-sheet/social-share-bottom-sheet.component';
 import { CourseReviewsComponent } from './course-reviews/course-reviews.component';
 import { CourseService } from './course.service';
+import { CarouselDirective } from './carousel.directive';
 
 
 
@@ -23,6 +24,7 @@ import { CourseService } from './course.service';
     CourseComponent,
     SocialShareBottomSheetComponent,
     CourseReviewsComponent,
+    CarouselDirective,
   ],
   imports: [
     CommonModule,

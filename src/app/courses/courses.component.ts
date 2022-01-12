@@ -39,7 +39,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
                 private router: Router,
                 private route: ActivatedRoute,
                 private seoService: SeoService,
-                @Inject(PLATFORM_ID) private readonly platformId: object) {  this.SEO(); }
+                @Inject(PLATFORM_ID) private readonly platformId: object) { this.SEO(); }
 
 
   ngOnInit(): void {
@@ -127,6 +127,8 @@ export class CoursesComponent implements OnInit, OnDestroy {
   private SEO(): void {
 
       let url = '';
+      const imgURL = url.split('courses');
+
       if (this.isBrowser) {
           url = window.location.href;
       }
@@ -136,9 +138,11 @@ export class CoursesComponent implements OnInit, OnDestroy {
                 card: 'summary',
                 site: 'eSCHOOL',
                 title: 'Online Courses',
-                description: 'Provides Online Courses on Different Fields',
-                textDescription: '',
-                image: 'assets/images/ivan-aleksic-unsplash.jpg',
+                description: `Join 1,000s of learners and have unlimited access to the best courses, 
+                                hands-on projects, and job-ready and promotionalcertificate programs.`,
+                image: imgURL[0] + 'assets/images/site-logo.png',
+                image_alt: 'Site Logo',
+                updated_time: new Date(),
                 url: url,
                 type: 'Provides Online Courses on Different Fields'
             };

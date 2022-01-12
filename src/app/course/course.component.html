@@ -67,7 +67,7 @@
           <div class="btns-container">
 
               <div class="take-course">
-                <a  mat-raised-button color="primary" href="https://www.udemy.com{{course.url}}" target="_blank">Take This Course</a>
+                <a  mat-flat-button color="primary" href="https://www.udemy.com{{course.url}}" target="_blank">Take This Course</a>
               </div>
 
               <div>
@@ -80,7 +80,7 @@
                 <a  class="spacer links reviews"
                     aria-label="read reviews icon button"
                     matTooltip="Read Reviews"
-                    mat-raised-button
+                    mat-flat-button
                     color="accent"
                     [routerLink]="['./reviews']"
                     [fragment]="'course-reviews'">
@@ -94,7 +94,7 @@
           </div>
 
 
-          <div id="course-reviews" #smooth>
+          <div id="course-reviews" appScrollToSection>
             <router-outlet></router-outlet>
           </div>
 

@@ -75,6 +75,7 @@ exports.getCourseReviews = async(req, res, next) => {
 exports.getSearchCourses = (req, res, next) => {
     
     const apiURL = `courses/?page=${1}&page_size=${8}&search=${req.body.searchTerm}`;
+    console.log(req.body.searchTerm);
 
     axiosInstance.get(apiURL)
     .then(response => res.status(200).json({ courses: response.data.results }) )

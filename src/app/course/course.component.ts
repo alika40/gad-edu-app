@@ -1,10 +1,8 @@
-import {  Component, ElementRef,
-          Inject,
-          OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import {  Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import {MatBottomSheet, MatBottomSheetConfig} from '@angular/material/bottom-sheet';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Course } from '../courses.model';
 import { Seo } from '../seo.model';
@@ -32,13 +30,11 @@ export class CourseComponent implements OnInit, OnDestroy {
   gutterSize = '.5rem';
   private subs: Subscription = new Subscription();
   private isBrowser = isPlatformBrowser(this.platformId);
-  @ViewChild('smooth') private divElem: ElementRef<HTMLDivElement> | any;
 
 
 
   constructor(  readonly bottomSheet: MatBottomSheet,
                 private route: ActivatedRoute,
-                private router: Router,
                 private seoService: SeoService,
                 private breakpointObserver: BreakpointObserver,
                 @Inject(PLATFORM_ID) private readonly platformId: object,
@@ -48,7 +44,6 @@ export class CourseComponent implements OnInit, OnDestroy {
 
     this.getCourse();
     this.customBreakPIonts();
-    this.scrollToSectionHook();
 
   }
 
@@ -126,26 +121,6 @@ export class CourseComponent implements OnInit, OnDestroy {
 
 
 
-  private scrollToSectionHook(): void {
-    this.subs.add(
-        this.router.events.subscribe(event => {
-          if (event instanceof NavigationEnd) {
-              const tree = this.router.parseUrl(this.router.url);
-              if (tree.fragment) {
-                  const element = this.divElem.nativeElement;
-                  if (element) {
-                      setTimeout(() => {
-                          element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-                      }, 1000 );
-                  }
-              }
-          }
-        })
-    );
-
-  }
-
-
 
     // Search Engine Optimization
   private SEOmetadata(course: Course): void {
@@ -162,8 +137,9 @@ export class CourseComponent implements OnInit, OnDestroy {
                 site: 'eSCHOOL',
                 title: course.title,
                 description: course.primary_category.title,
-                textDescription: intro.job_title,
                 image: course.image_480x270,
+                image_alt: course.title,
+                updated_time: course.created,
                 url: url,
                 type: course.primary_category.title
       };

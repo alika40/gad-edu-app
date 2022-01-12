@@ -1,7 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Seo } from '../seo.model';
 import { SeoService } from '../seo.service';
 
@@ -13,9 +11,7 @@ import { SeoService } from '../seo.service';
 export class HomeComponent implements OnInit {
 
   private content: Seo | any;
-  private subs: Subscription = new Subscription();
   private isBrowser = isPlatformBrowser(this.platformId);
-  @ViewChild('smooth') private divElem: ElementRef<HTMLDivElement> | any;
 
 
   courses_categories = ['Free Courses','Business', 'Design', 'Development', 'Finance & Accounting',
@@ -24,35 +20,10 @@ export class HomeComponent implements OnInit {
                         'Photography & Video', 'Teaching & Academics', 'Paid Courses'];
 
 
-  constructor(  private router: Router,
-                private seoService: SeoService,
+  constructor(  private seoService: SeoService,
                 @Inject(PLATFORM_ID) private readonly platformId: object) { this.SEO(); }
 
-  ngOnInit(): void {
-
-    this.scrollToSectionHook();
-
-  }
-
-
-  private scrollToSectionHook(): void {
-    this.subs.add(
-        this.router.events.subscribe(event => {
-          if (event instanceof NavigationEnd) {
-              const tree = this.router.parseUrl(this.router.url);
-              if (tree.fragment) {
-                  const element = this.divElem.nativeElement;
-                  if (element) {
-                      setTimeout(() => {
-                          element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-                      }, 1000 );
-                  }
-              }
-          }
-        })
-    );
-
-  }
+  ngOnInit(): void { }
 
 
 
@@ -60,6 +31,8 @@ export class HomeComponent implements OnInit {
   private SEO(): void {
 
     let url = '';
+    const imgURL = url.split('home');
+
     if (this.isBrowser) {
         url = window.location.href;
     }
@@ -69,15 +42,17 @@ export class HomeComponent implements OnInit {
               card: '',
               site: 'eSCHOOL',
               title: 'Online Courses',
-              description: 'Provides Online Courses on Different Fields',
-              textDescription: '',
-              image: 'assets/images/ivan-aleksic-unsplash.jpg',
+              description: `Join 1,000s of learners and have unlimited access to the best courses, 
+                                hands-on projects, and job-ready and promotionalcertificate programs.`,
+              image: imgURL + 'assets/images/ivan-aleksic-unsplash.jpg',
+              image_alt: 'class Room',
+              updated_time: new Date(),
               url: url,
               type: 'Provides Online Courses on Different Fields'
           };
 
     this.seoService.SEOmetadata(this.content);
-
   }
+
 
 }

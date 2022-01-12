@@ -30,16 +30,18 @@
         </p>
     </section>
     
-    <section id="course-categories" #smooth>
+    
+    <section id="course-categories" appScrollToSection>
         <h2> List of Possible Course Categories</h2>
         <div>
+            <div></div>
             <mat-chip-list aria-label="Courses categories selection">
                 <mat-chip   *ngFor="let cc of courses_categories; even as isEven; odd as isOdd; first as isFirst; last as isLast;"
                             [ngClass]="{'isEvenStyle': isEven, 'isOddStyle': isOdd, 'isFirstStyle': isFirst, 'isLastStyle': isLast}"
                             [routerLink]="['/courses/category', cc]">
                             {{ cc }}
                 </mat-chip>
-              </mat-chip-list>
+            </mat-chip-list>
         </div>
     </section>
 </div>
