@@ -34,15 +34,17 @@ export class AboutComponent implements OnInit {
     if (this.isBrowser) {
         url = window.location.href;
     }
+
+    const str = `We offer top-notch, high quality, online vidoe tutorials on different courses to our teeming 
+                  users at an offordable price. We also offer free courses which comes with no certification. 
+                  Our courses ranges from STEM (Science, Technology, Engineering and Mathematics) education to Personal Development`;
     this.content = {
-              intro: '',
+              intro: str,
               setTitle: 'About Us | eSCHOOL',
               card: 'summary',
               site: 'eSCHOOL',
               title: 'About Us',
-              description: `We offer top-notch, high quality, online vidoe tutorials on different courses to our teeming 
-                            users at an offordable price. We also offer free courses which comes with no certification. 
-                            Our courses ranges from STEM (Science, Technology, Engineering and Mathematics) education to Personal Development`,
+              description: str,
               image: imgURL[0] + 'assets/images/site-logo.png',
               image_alt: 'Site Logo',
               updated_time: new Date(),

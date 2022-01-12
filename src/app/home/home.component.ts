@@ -36,14 +36,16 @@ export class HomeComponent implements OnInit {
     if (this.isBrowser) {
         url = window.location.href;
     }
+
+    const str = `Join 1,000s of learners and have unlimited access to the best courses, 
+                  hands-on projects, and job-ready and promotionalcertificate programs.`;
     this.content = {
-              intro: '',
+              intro: str,
               setTitle: 'Home | eSCHOOL',
               card: '',
               site: 'eSCHOOL',
               title: 'Online Courses',
-              description: `Join 1,000s of learners and have unlimited access to the best courses, 
-                                hands-on projects, and job-ready and promotionalcertificate programs.`,
+              description: str,
               image: imgURL + 'assets/images/ivan-aleksic-unsplash.jpg',
               image_alt: 'class Room',
               updated_time: new Date(),
