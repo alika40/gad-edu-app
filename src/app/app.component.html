@@ -8,7 +8,7 @@
     </header>
 
     <mat-sidenav-container class="sidenav-container" appScrolledTo #scrolledToElement="appScrolledTo">
-        <mat-sidenav  [mode]="mobileQuery.matches ? 'over' : 'side'"
+        <mat-sidenav  [mode]="mobileQuery.matches ? 'side' : 'side'"
                       [fixedInViewport]="mobileQuery.matches ? true: true"
                       [fixedTopGap]="70"
                       [fixedBottomGap]="0"

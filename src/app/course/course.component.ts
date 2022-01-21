@@ -108,7 +108,7 @@ export class CourseComponent implements OnInit, OnDestroy {
       bottomShtConfig.restoreFocus = true;
       if (this.isBrowser) {
           const url = window.location.href;
-          bottomShtConfig.data = { theme: 'circles-dark', url,  courseTitle: course.title };
+          bottomShtConfig.data = { theme: 'circles-dark', url, content: course.primary_category.title,   courseTitle: course.title };
       }
       bottomShtConfig.ariaLabel = 'Share on social media';
       bottomShtConfig.closeOnNavigation = true,
