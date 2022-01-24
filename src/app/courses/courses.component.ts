@@ -190,6 +190,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
             this.courses = data.courses;
             this.totalCourseCount = data.courseCount;
     });
+    this.router.navigate(['/courses'], {fragment: `courses_${this.currentPage}`});
     
   }
 
