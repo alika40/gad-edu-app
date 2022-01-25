@@ -4,10 +4,12 @@
                         [include]="['copy', 'facebook', 'twitter', 'email', 'whatsapp', 'linkedin', 'telegram', 'pinterest', 'reddit']"
                         [showIcon]="true"
                         [showText]="true"
-                        [url]="bottomSheetData.url"
-                        [title]="bottomSheetData.title"
-                        [description]="bottomSheetData.content"
+                        [url]="bottomSheetData.courseURL"
                         (click)="bottomSheetClose($event)">
+                        <!-- [description]="bottomSheetData.courseIntro" -->
+                        <!-- [title]="bottomSheetData.courseTitle" -->
+
+
         </share-buttons>
     </div>
     <div class="share-btn-panel-close">

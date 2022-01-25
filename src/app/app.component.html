@@ -40,7 +40,7 @@
                         <a  mat-button   
                             [routerLinkActive]="['activeLinkClass']"
                             [routerLinkActiveOptions]="{exact: true}"
-                            routerLink="/courses"
+                            routerLink="/courses/page/1"
                             (click)="mobileQuery.matches ? sidenav.toggle() : ''"
                             [class.active]="(isHandset | async)?.matches"
                             class="a-text">

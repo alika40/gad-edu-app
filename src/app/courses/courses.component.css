@@ -27,13 +27,14 @@ mat-grid-tile {
     background: var(--container-theme);
     border-radius: 8px;
     padding: 0;
-    transition: 0.3s;
+    transition: 0.2s all ease-in;
     width: 96%;
     height: 96%;
 }
 
 .mat-card:hover {
     box-shadow: 0 8px 15px 0 rgba(0,0,0,0.1),0 6px 10px 0 rgba(0,0,0,0.1);
+    transform: scale(1.035);
 }
 .mat-card-content-div {
     color: var(--foreground-color);

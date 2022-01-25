@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { CoursesService } from './courses.service';
 import { Course } from '../courses.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Seo } from '../seo.model';
 import { SeoService } from '../seo.service';
@@ -23,6 +23,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
   showMoreOrLess = 80;
   currentPage = 1;
   coursesPerPage = 10;
+  enable = true;
   pageSize = [ 5, 10, 25, 50 ];
   category = '';
   cols = 2;
@@ -54,25 +55,28 @@ export class CoursesComponent implements OnInit, OnDestroy {
 
   private onGetCourses(): void {
 
-    this.category = this.route.snapshot.params['cat'];
-    if (this.category ) {
+    this.subs.add(
+            this.route.paramMap.subscribe((paramMap: ParamMap) => {
+                const pageNo = paramMap.has('pageNo');
+                const category = paramMap.has('category');
+                if (pageNo && category) { // ROUTE: 'courses/category/:category/page/:pageNo'
+                    this.category = paramMap.get('category') as string;
+                    this.currentPage = Number(paramMap.get('pageNo'));
+                }
+                if (pageNo && !category) { // ROUTE: 'courses/page/:pageNo'
+                    this.category = '';
+                    this.currentPage = Number(paramMap.get('pageNo'));
+                }
+          
+                if ( this.enable ) {
+                    this.loadCourses();
+                    this.enable = false;
 
-        this.coursesService.getCourses(this.category, this.currentPage, this.coursesPerPage)
-        .subscribe( (data: {courses: Course[], courseCount: number}) => { 
-                    this.courses = data.courses;
-                    this.totalCourseCount = data.courseCount;
-        });
-
-    }
-    else {
-
-        this.coursesService.getCourses()
-        .subscribe( (data: {courses: Course[], courseCount: number}) => { 
-                    this.courses = data.courses;
-                    this.totalCourseCount = data.courseCount;
-        });
-
-    }
+                }
+                
+          
+            })
+    );
 
   }
 
@@ -178,20 +182,32 @@ export class CoursesComponent implements OnInit, OnDestroy {
   onPageChange(pageData: PageEvent): any {
     this.currentPage = pageData.pageIndex + 1;
     this.coursesPerPage = pageData.pageSize;
-    let data$;
-    if ( this.category ) {
-      data$ = this.coursesService.getCourses(this.category, this.currentPage, this.coursesPerPage);
-    }
-    else {
-      data$ = this.coursesService.getCourses('', this.currentPage, this.coursesPerPage);
-    }
-
-    data$.subscribe( (data: {courses: Course[], courseCount: number}) => { 
-            this.courses = data.courses;
-            this.totalCourseCount = data.courseCount;
-    });
-    this.router.navigate(['/courses'], {fragment: `courses_${this.currentPage}`});
+    this.loadCourses();
+    this.enable = false;
     
+  }
+
+
+
+
+  private loadCourses(): void {
+
+      let data$;
+      if ( this.category ) {
+        data$ = this.coursesService.getCourses(this.category, this.currentPage, this.coursesPerPage);
+      }
+      else {
+        data$ = this.coursesService.getCourses('', this.currentPage, this.coursesPerPage);
+      }
+
+      data$.subscribe( (data: {courses: Course[], courseCount: number}) => { 
+              this.courses = data.courses;
+              this.totalCourseCount = data.courseCount;
+              this.category ?
+                  this.router.navigate([`/courses/category/${this.category}/page/${this.currentPage}`]) :
+                  this.router.navigate([`/courses/page/${this.currentPage}`]);
+      });
+
   }
 
 

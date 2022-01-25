@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-error404',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Error404Component implements OnInit {
 
-  constructor() { }
+  previousUrl!: string;
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
+  }
+
+  backBtn(): void {
+    this.location.back() 
+
   }
 
 }

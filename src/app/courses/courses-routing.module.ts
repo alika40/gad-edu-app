@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CoursesComponent } from './courses.component';
 
 const routes: Routes = [
-  { path: 'category/:cat', component: CoursesComponent },
-  { path: '', component: CoursesComponent },
+
+  { path: 'category/:category/page/:pageNo', component: CoursesComponent },
+  { path: 'page/:pageNo', component: CoursesComponent },
+
 ];
 
 @NgModule({

@@ -102,14 +102,15 @@ export class CourseComponent implements OnInit, OnDestroy {
   openBottomSheet(course: Course): void {
 
       const bottomShtConfig = new MatBottomSheetConfig();
+      let url = '';
 
       bottomShtConfig.disableClose = false;
       bottomShtConfig.autoFocus = true;
       bottomShtConfig.restoreFocus = true;
       if (this.isBrowser) {
-          const url = window.location.href;
-          bottomShtConfig.data = { theme: 'circles-dark', url, content: course.primary_category.title,   courseTitle: course.title };
+          url = window.location.href;
       }
+      bottomShtConfig.data = { theme: 'circles-dark', courseURL: url, courseIntro: course.headline,   courseTitle: course.title };
       bottomShtConfig.ariaLabel = 'Share on social media';
       bottomShtConfig.closeOnNavigation = true,
       bottomShtConfig.panelClass = 'bottom-sheet-class-style';

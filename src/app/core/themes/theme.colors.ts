@@ -61,7 +61,7 @@ export const dark: Theme = {
 
 
       /* Colors for backgrounds for dark background */
-      '--background-theme': '#18181b',
+      '--background-theme': '#232323',
       '--comment-create-textarea': '#3f413e',
       '--com-color-btn': '#8a2be2',
       '--container-theme': '#080808',
