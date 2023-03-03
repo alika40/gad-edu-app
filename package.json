@@ -3,16 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start1": "npm run dev:ssr",
-    "build1": "ng build",
+    "start": "npm run dev:ssr",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run com-project:serve-ssr",
     "serve:ssr": "node dist/com-project/server/main.js",
     "build:ssr": "ng build && ng run com-project:server",
     "prerender": "ng run com-project:prerender",
-    "start": "node dist/com-project/server/main.js",
-    "build": "npm run build:ssr"
+    "start:heroku": "node dist/com-project/server/main.js",
+    "heroku-postbuild": "npm run build:ssr"
   },
   "private": true,
   "dependencies": {
