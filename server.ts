@@ -9,7 +9,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
 
-const expressApp = require('./app');
+//const expressApp = require('./app');
 
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -30,7 +30,7 @@ export function app(): express.Express {
   // server.get('/api/**', (req, res) => { 
   //   res.status(404).send('data requests are not yet supported');
   // });
-  expressApp(server);
+  //expressApp(server);
 
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {

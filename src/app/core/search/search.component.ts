@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap, tap, finalize, filter } from 'rxjs/operators';
-import { Course } from 'src/app/courses.model';
+import { Courses } from 'src/app/courses.model';
 import { SearchService } from '../services/search.service';
 
 @Component({
@@ -13,9 +13,9 @@ import { SearchService } from '../services/search.service';
 })
 export class SearchComponent implements OnInit, OnDestroy {
 
-  results: Course[] = [];
+  results: Courses[] = [];
   isLoading = false;
-  enterKeyResult: Course | undefined;
+  enterKeyResult: Courses | undefined;
   private subs: Subscription = new Subscription();
 
 
@@ -37,8 +37,8 @@ export class SearchComponent implements OnInit, OnDestroy {
                     );
 
         this.subs.add(
-                    data$.subscribe((courses: {courses: Course[]}) => {
-                        this.results = courses.courses;
+                    data$.subscribe((data: {courses: Courses[]}) => {
+                        this.results = data.courses;
                         if (this.results.length === 1) {
                             const course = this.results[0];
                             this.enterKeyResult = course;
@@ -51,7 +51,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
 
 
-    onClickSearch(course: Course): void {
+    onClickSearch(course: Courses): void {
 
         // If a single item of an array is returned as a search result, valuate to true onEnterkey press.
         if (this.enterKeyResult) {

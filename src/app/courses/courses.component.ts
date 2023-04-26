@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Subscription } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { CoursesService } from './courses.service';
-import { Course } from '../courses.model';
+import { Courses } from '../courses.model';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Seo } from '../seo.model';
@@ -18,7 +18,7 @@ import { SeoService } from '../seo.service';
 })
 export class CoursesComponent implements OnInit, OnDestroy {
 
-  courses: Course[] = [];
+  courses: Courses[] = [];
   totalCourseCount = 0;
   showMoreOrLess = 80;
   currentPage = 1;
@@ -200,9 +200,9 @@ export class CoursesComponent implements OnInit, OnDestroy {
         data$ = this.coursesService.getCourses('', this.currentPage, this.coursesPerPage);
       }
 
-      data$.subscribe( (data: {courses: Course[], courseCount: number}) => { 
+      data$.subscribe( (data: {courses: Courses[], course_count: number}) => { 
               this.courses = data.courses;
-              this.totalCourseCount = data.courseCount;
+              this.totalCourseCount = data.course_count;
               this.category ?
                   this.router.navigate([`/courses/category/${this.category}/page/${this.currentPage}`]) :
                   this.router.navigate([`/courses/page/${this.currentPage}`]);

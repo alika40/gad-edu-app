@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IsLoadingService } from '../core/services/isloading.service';
-import { Course } from '../courses.model';
+import { Courses } from '../courses.model';
 
 
 const BACKEND_URL_DATA = environment;
@@ -22,7 +22,7 @@ export class CoursesService {
 
 
 
-  getCourses(groupCourse = '', currentPage = 1, coursesPerPage = 10): Observable<{courses: Course[], courseCount: number}> {
+  getCourses(groupCourse = '', currentPage = 1, coursesPerPage = 10): Observable<{courses: Courses[], course_count: number}> {
     // Backend Params for pagination
     const queryParamA = `/courses/?page=${currentPage}&page_size=${coursesPerPage}`;
     const queryParamB = `/courses/?page=${currentPage}&page_size=${coursesPerPage}&search=${groupCourse}`;
@@ -30,29 +30,9 @@ export class CoursesService {
     const uriB = BACKEND_URL_DATA.api_URL + queryParamB;
     const encodedURI = groupCourse ? encodeURI(uriB) : uriA;
 
-    const data$ = this.http.get<{courses: Course[], courseCount: number}>(encodedURI)
+    const data$ = this.http.get<{courses: Courses[], course_count: number}>(encodedURI)
     .pipe(map((data) => {
-      return { courses: data.courses.map((course: Course) => {
-        return {
-                id: course.id,
-                title: course.title,
-                url: course.url,
-                price: course.price,
-                discount_price: '',
-                headline: course.headline,
-                rating: 0,
-                num_reviews: 0,
-                description: '',
-                image_480x270: course.image_480x270,
-                primary_category: { title: '', url: '' },
-                created: '',
-                objectives_summary: [],
-                requirements_data: { items: []},
-                visible_instructors: course.visible_instructors
-              };
-        }),
-        courseCount: data.courseCount
-      };
+      return { courses: data.courses, course_count: data.course_count };
     }));
     return this.isLoadingService.showContentUntilCompleted(data$); // Spinner Action
   }

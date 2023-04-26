@@ -10,9 +10,7 @@
     "dev:ssr": "ng run com-project:serve-ssr",
     "serve:ssr": "node dist/com-project/server/main.js",
     "build:ssr": "ng build && ng run com-project:server",
-    "prerender": "ng run com-project:prerender",
-    "start:heroku": "node dist/com-project/server/main.js",
-    "heroku-postbuild": "npm run build:ssr"
+    "prerender": "ng run com-project:prerender"
   },
   "private": true,
   "dependencies": {
@@ -34,9 +32,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@nguniversal/express-engine": "^13.0.1",
-    "axios": "^0.24.0",
-    "debug": "^4.3.3",
-    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "ngx-sharebuttons": "^9.0.0",
     "rxjs": "~7.4.0",

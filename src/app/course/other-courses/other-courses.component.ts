@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy,
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { Course } from 'src/app/courses.model';
+import { Courses } from 'src/app/courses.model';
 
 @Component({
   selector: 'app-other-courses',
@@ -17,8 +17,8 @@ import { Course } from 'src/app/courses.model';
 export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   
-  courses: Course[] = [];
-  private _otherCourses: Course[] = [];
+  courses: Courses[] = [];
+  private _otherCourses: Courses[] = [];
 
 
   @ViewChild('navButton') private navButton: ElementRef<HTMLElement> | any;
@@ -36,10 +36,10 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() courseCategory = '';
 
-  @Input() get otherCourses(): Course[] {
+  @Input() get otherCourses(): Courses[] {
     return this._otherCourses;
   }
-  set otherCourses(courses: Course[]) {
+  set otherCourses(courses: Courses[]) {
     this._otherCourses = courses;
     this.getCourses(this.otherCourses);
   }
@@ -54,7 +54,7 @@ export class OtherCoursesComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   
-  private getCourses(courses: Course[]): void {
+  private getCourses(courses: Courses[]): void {
     this.courses = courses;
   }
 

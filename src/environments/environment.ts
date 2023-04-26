@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    api_URL: 'http://localhost:4200/api',
+    //api_URL: 'http://localhost:4200/api',
+    api_URL: 'https://android-server.cyclic.app/api'
 };
 
 /*

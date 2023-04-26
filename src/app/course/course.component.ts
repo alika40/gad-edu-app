@@ -4,11 +4,12 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Course } from '../courses.model';
+import { Course } from '../course.model';
 import { Seo } from '../seo.model';
 import { SocialShareBottomSheetComponent } from './social-share-bottom-sheet/social-share-bottom-sheet.component';
 import { isPlatformBrowser } from '@angular/common';
 import { SeoService } from '../seo.service';
+import { Courses } from '../courses.model';
 
 
 
@@ -22,7 +23,7 @@ import { SeoService } from '../seo.service';
 export class CourseComponent implements OnInit, OnDestroy {
 
   course: Course | any;
-  courses: Course[] = [];
+  courses: Courses[] = [];
   content: Seo  | any;
   description:SafeHtml | any;
   cols = 2;
@@ -99,7 +100,7 @@ export class CourseComponent implements OnInit, OnDestroy {
 
 
 
-  openBottomSheet(course: Course): void {
+  openBottomSheet(course: Courses): void {
 
       const bottomShtConfig = new MatBottomSheetConfig();
       let url = '';
